@@ -1,0 +1,194 @@
+@use '../../shared/sass/mixin.scss';
+@use '../../shared//sass/animations.scss';
+
+@mixin inputs {
+    width: 100%;
+    height: 50px;
+    outline: none;
+    border: none;
+    border-radius: 2px;
+}
+
+.login-container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    .blur-background{
+        z-index: -100;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: #132C33;
+        background: linear-gradient(300deg, #132C33, #126E82);
+        filter: blur(150px);
+    }
+    .form-wrapper{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 37%;
+        height: 80%;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        background: rgba(#8fcbd3, .5);
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.125);
+        box-shadow: 0 25px 45px #000000AA;
+        & > h2{
+            height: 23%;
+            font-size: 3em;
+            color: #fff;
+            text-transform: uppercase;
+            text-align: center;
+            @include mixin.center-flex();
+        }
+        .form{
+            display: flex;
+            flex-direction: column;
+            width: 90%;
+            .email{
+                @include mixin.input-effect();
+            }
+            .password{
+                margin: 20px 0;
+                @include mixin.input-effect();
+            }
+            .input{
+                padding-left: 15px;
+                width: calc(100% - 15px);
+                height: 30px;
+                outline: none;
+                border: none;
+                border-radius: 2px;
+                font-size: 1em;
+            }
+            & > label{
+                font-size: 1em;
+            }
+            .emptyInput{
+                height: 30px;
+                & ~ label{
+                    transform: translateY(-125%);
+                    color: #fff;
+                }
+            }
+            .submit{
+                position: relative;
+                align-self: center;
+                width: 140px;
+                height: 40px;
+                background: #D8E3E7;
+                border: none;
+                border-radius: 2px;
+                outline: none;
+                cursor: pointer;
+                overflow: hidden;
+                &:hover{
+                    &::before{
+                        background: rgba(#126E82, .7);
+                        animation: rotate 2s linear infinite;
+                        transition: .5s;
+                    }
+                }
+                &:active{
+                    background: #d0dadd;
+                    transition: .1s;
+                    &::after{
+                        background: #d0dadd;
+                        transition: .1s;
+                    }
+                }
+                &::after{
+                    content: 'Login';
+                    position: absolute;
+                    @include mixin.center-flex();
+                    width: 96%;
+                    height: 90%;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    margin: auto;
+                    border-radius: 2px;
+                    background: #D8E3E7;
+                    //background: transparent;
+                    transition: .5s;
+                }
+                &::before{
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: -25%;
+                    margin: auto;
+                    width: 150%;
+                    height: 50%;
+                    border-radius: 2px;
+                    animation: rotate 2s linear infinite;
+                    transition: all .5s;
+                }
+            }
+        }
+        & > span {
+            color: #fff;
+            margin: 0 0 20px 0;
+        }
+        .account{
+            margin: 20px 0;
+            & > a{
+                color: rgba(#fff, .5);
+                margin: 10px;
+                &:hover{
+                    color: #fff;
+                }
+            }
+        }
+        .google{
+            position: relative;
+            height: 40px;
+            width: 200px;
+            outline: none;
+            border: none;
+            cursor: pointer;
+            color: #fff;
+            background: #D04333;
+            transition: .1s;
+            &:hover{
+                background: #912b20;
+                transition: .1s;
+            }
+            & > i{
+                position: absolute;
+                left: 15px;
+            } 
+        }
+        .facebook{
+            position: relative;
+            height: 40px;
+            width: 200px;
+            outline: none;
+            border: none;
+            cursor: pointer;
+            color: #fff;
+            background: #3C66C5;
+            margin: 20px;
+            transition: .1s;
+            &:hover{
+                background: #294b9c;
+                transition: .1s;
+            }
+            & > i{
+                position: absolute;
+                left: 15px;
+            }
+        }
+    }
+}
+
+@include animations.rotate();

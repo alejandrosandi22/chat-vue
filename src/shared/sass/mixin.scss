@@ -1,0 +1,38 @@
+@mixin input-effect {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 45px;
+    & > input{
+        position: absolute;
+        &:focus ~ label{
+            position: absolute;
+            color: #fff;
+            transform: translateY(-125%);
+            transition: .5s;
+        }
+    }
+    label{
+        position: absolute;
+        color: rgb(83, 83, 83);
+        cursor: text;
+        transition: .5s;
+        margin-left: 5px;
+    }
+}
+
+@mixin center-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin center-absolute {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
