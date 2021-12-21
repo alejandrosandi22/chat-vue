@@ -1,15 +1,18 @@
 <template>
   <div>
-    <AuthComponent/>
+    <Chat/>
   </div>
 </template>
 
 <script>
-import AuthComponent from './views/AuthComponent/AuthComponent.vue'
+import Auth from './views/Auth/Auth.vue'
+import Chat from './views/Chat/Chat.vue'
+
 export default {
   name: 'App',
   components: {
-    AuthComponent,
+    Auth,
+    Chat,
   }
 }
 </script>
