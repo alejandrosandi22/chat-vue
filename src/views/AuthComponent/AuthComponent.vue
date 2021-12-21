@@ -1,16 +1,24 @@
 <template>
     <div class="auth-container">
-        <LoginComponent/>
+        <LoginComponent v-if="registered"></LoginComponent>
+        <SignUpComponent v-if="!registered"></SignUpComponent>
     </div>
 </template>
 
 <script>
-import LoginComponent from '../../components/LoginComponent/LoginComponent.vue'
+import LoginComponent from '../../components/LoginComponent/LoginComponent.vue';
+import SignUpComponent from '../../components/SignUpComponent/SignUpComponent.vue';
 
 export default ({
     name: 'AuthComponent',
     components:{
         LoginComponent,
+        SignUpComponent,
+    },
+    data(){
+        return{
+            registered: false,
+        }
     }
 })
 </script>

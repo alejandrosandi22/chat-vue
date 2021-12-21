@@ -9,7 +9,7 @@
             <label for="email" class="label-email">Email</label>
           </div>
           <div class="password">
-            <input  type="password" id="password" class="input" v-model="passwordInput" :class="{'emptyInput': passwordInput !== ''}">
+            <input type="password" id="password" class="input" v-model="passwordInput" :class="{'emptyInput': passwordInput !== ''}">
             <label for="password">Password</label>
           </div>
           <button class="submit"></button>
