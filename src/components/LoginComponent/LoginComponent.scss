@@ -62,7 +62,7 @@
             .input{
                 padding-left: 15px;
                 width: calc(100% - 15px);
-                height: 30px;
+                height: 4vh;
                 outline: none;
                 border: none;
                 border-radius: 2px;
@@ -72,7 +72,7 @@
                 font-size: 1em;
             }
             .emptyInput{
-                height: 30px;
+                height: 4vh;
                 & ~ label{
                     transform: translateY(-125%);
                     color: #fff;
