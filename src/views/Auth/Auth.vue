@@ -10,7 +10,7 @@ import LoginComponent from '../../components/LoginComponent/LoginComponent.vue';
 import SignUpComponent from '../../components/SignUpComponent/SignUpComponent.vue';
 
 export default ({
-    name: 'AuthComponent',
+    name: 'Auth',
     components:{
         LoginComponent,
         SignUpComponent,
