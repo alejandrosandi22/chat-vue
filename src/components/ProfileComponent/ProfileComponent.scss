@@ -1,0 +1,79 @@
+@use '../../shared/sass/mixin.scss';
+
+.profile-container{
+    width: 100vw;
+    height: 100vh;
+    @include mixin.center-flex();
+    overflow: hidden;
+    .blur-background{
+        z-index: -100;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: #132C33;
+        background: linear-gradient(300deg, #132C33, #126E82);
+        filter: blur(150px);
+    }
+    .profile-wrapper{
+        position: relative;
+        width: 50%;
+        height: 80%;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        background: rgba(#8fcbd3, .5);
+        border-radius: 12px;
+        border: 1px solid rgba(#fff, 0.125);
+        box-shadow: 0 25px 45px #000000AA;
+        & > h4{
+            padding: 10px 20px;
+            width: 100%;
+            height: 10%;
+            @include mixin.center-flex();
+            justify-content: flex-start;
+            color: #fff;
+            font-size: 2em;
+            font-weight: 300;
+        }
+        & > table{
+            @include mixin.center-absolute();
+            width: 90%;
+            height: 80%;
+            tr{
+                width: 100%;
+                &:nth-child(1){
+                    .first-column{
+                        height: 100%;
+                    }
+                    & > td{
+                        height: 100px;
+                    }
+                }
+                .first-column{
+                    width: 60%;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: end;
+                }
+                td{
+                    height: 30px;
+                    width: 50%;
+                    color: #fff;
+                    font-size: 1em;
+                    & > img{
+                        height: 100%;
+                    }
+                    .edit-button{
+                        @include mixin.auth-buttons();
+                        &::after{
+                            content: 'Edit';
+                        }
+                    }
+                }
+            }
+        }
+       
+    }
+}
