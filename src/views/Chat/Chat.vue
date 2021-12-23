@@ -1,7 +1,7 @@
 <template>
-    <NavComponent></NavComponent>
-    <ChatComponent ></ChatComponent>
-    <ProfileComponent style="display: none"></ProfileComponent>
+    <NavComponent @recivePage="recivePage"></NavComponent>
+    <ChatComponent v-if="actualPage"></ChatComponent>
+    <ProfileComponent v-if="!actualPage"></ProfileComponent>
 </template>
 
 <script>
@@ -15,6 +15,16 @@ export default {
         ChatComponent,
         ProfileComponent,
         NavComponent,
+    },
+    data(){
+        return{
+            actualPage: true,
+        }
+    },
+    methods:{
+        recivePage(value){
+            this.actualPage = value;
+        }
     }
 }
 </script>
