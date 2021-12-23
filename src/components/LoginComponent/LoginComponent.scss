@@ -140,6 +140,8 @@
         .account{
             margin: 20px 0;
             & > a{
+                cursor: pointer;
+                text-decoration: underline;
                 color: rgba(#fff, .5);
                 margin: 10px;
                 &:hover{

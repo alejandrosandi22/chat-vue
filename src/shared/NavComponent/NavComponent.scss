@@ -31,6 +31,8 @@
                 transition: .5s;
             }
             &:hover{
+                color: rgb(220, 220, 220);
+                transition: .1s;
                 &::before{
                     content: attr(data-content);
                     position: absolute;

@@ -15,8 +15,8 @@
           <button class="submit"></button>
         </form>
         <div class="account">
-          <a href="#">forget your password?</a>
-          <a href="#">You do not have an account?</a>
+          <a href="#">Forget your password?</a>
+          <a @click="emitRegistered()" >You do not have an account?</a>
         </div>
         <span>or</span>
         <button class="google"><i class="fab fa-google"></i>Login with Google</button>
@@ -32,6 +32,13 @@ export default {
     return{
       emailInput: '',
       passwordInput: '',
+      registered: true,
+    }
+  },
+  methods:{
+    emitRegistered(){
+      this.registered = false;
+      this.$emit('receiveConfirmation', this.registered);
     }
   }
 }

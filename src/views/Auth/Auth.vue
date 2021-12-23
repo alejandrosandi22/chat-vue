@@ -1,7 +1,7 @@
 <template>
     <div class="auth-container">
-        <LoginComponent v-if="registered"></LoginComponent>
-        <SignUpComponent v-if="!registered"></SignUpComponent>
+        <LoginComponent @receiveConfirmation="confirmRegistered" v-if="registeredUser"></LoginComponent>
+        <SignUpComponent @receiveConfirmation="confirmRegistered" v-if="!registeredUser"></SignUpComponent>
     </div>
 </template>
 
@@ -11,13 +11,18 @@ import SignUpComponent from '../../components/SignUpComponent/SignUpComponent.vu
 
 export default ({
     name: 'Auth',
+    data(){
+        return{
+            registeredUser: true
+        }
+    },
     components:{
         LoginComponent,
         SignUpComponent,
     },
-    data(){
-        return{
-            registered: false,
+    methods:{
+        confirmRegistered(value){
+            this.registeredUser = value;
         }
     }
 })
