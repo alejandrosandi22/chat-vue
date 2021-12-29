@@ -5,6 +5,12 @@ import Error from '../views/Error/404.vue';
 
 const routes = [
   {
+    path: '/',
+    name: 'login',
+    redirect: '/auth',
+    component: Auth
+  },
+  {
     path: '/auth',
     name: 'Auth',
     component: Auth

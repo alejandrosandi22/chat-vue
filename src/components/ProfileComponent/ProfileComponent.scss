@@ -64,6 +64,7 @@
                     font-size: 1em;
                     & > img{
                         height: 100%;
+                        border-radius: 50%;
                     }
                     .edit-button{
                         @include mixin.auth-buttons();

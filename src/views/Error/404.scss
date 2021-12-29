@@ -1,0 +1,44 @@
+@use '../../shared/sass/mixin.scss';
+
+.error-container{
+    width: 100vw;
+    height: 100vh;
+    @include mixin.center-flex();
+    
+    perspective: 500px;
+    .bg{
+        z-index: -100;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: #132C33;
+        background: linear-gradient(300deg, #132C33, #126E82);
+        filter: blur(150px);
+    }
+    .block{
+        position: absolute;
+        top: 0;
+        width: 100px;
+        height: 100px;
+        background: #D8E3E799;
+        backdrop-filter: blur(150px);
+        &:nth-child(2){
+            top: 0;
+            left: 0;
+            width: 300px;
+            height: 300px;
+        }
+    }
+    & > h1{
+        font-size: 7em;
+        text-transform: uppercase;
+        background: linear-gradient(300deg, rgba(#D8E3E7, .7), rgba(#fff, .7));
+        backdrop-filter: blur(5px);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke: .5px #D8E3E7;
+        transform: rotateY(-8deg);
+    }
+}

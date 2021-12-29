@@ -7,7 +7,7 @@
 <script>
 import ChatComponent from '../../components/ChatComponent/ChatComponent.vue';
 import ProfileComponent from '../../components/ProfileComponent/ProfileComponent.vue';
-import NavComponent from '../../shared/NavComponent/NavComponent.vue';
+import NavComponent from '../../components/shared/NavComponent/NavComponent.vue';
 
 export default {
     name: 'Chat',
@@ -28,5 +28,3 @@ export default {
     }
 }
 </script>
-
-<style lang="scss" src="./Chat.scss"></style>
