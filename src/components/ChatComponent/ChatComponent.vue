@@ -41,9 +41,13 @@ export default {
     test(){
       const auth = getAuth();
       onAuthStateChanged(auth, (user) => {
-        this.user_name = user.displayName;
-        this.photo_url = user.photoURL;
-        this.user_email = user.email;
+        if(user){
+          this.user_name = user.displayName;
+          this.photo_url = user.photoURL;
+          this.user_email = user.email;
+        } else {
+          this.user_name = ''
+        }
       }); 
     }
   },

@@ -43,14 +43,15 @@
         <a @click="emitRegistered()">Do you already have an account?</a>
       </div>
       <span>or</span>
-      <button @click="signUpGoogle" class="google"><i class="fab fa-google"></i>Sign Up with Google</button>
-      <button @click="signUpFacebook" class="facebook"><i class="fab fa-facebook-f"></i>Sign Up with Facebook</button>
+      <button @click="signUpWithGoogle" class="google"><i class="fab fa-google"></i>Sign Up with Google</button>
+      <button @click="signUpWithFacebook" class="facebook"><i class="fab fa-facebook-f"></i>Sign Up with Facebook</button>
     </div> 
   </div>  
 </template>
 
 <script>
 import firebase from 'firebase/compat/app';
+import { getFirestore, collection, addDoc, doc, getDoc } from "firebase/firestore";
 import AppService from '../../services/AppService';
 import toastr from 'toastr';
 
@@ -58,8 +59,9 @@ export default ({
   name: 'SignUpComponent',
   data(){
     return{
-      user_name: String,
-      photo_url: String,
+      db: getFirestore(),
+      user_name: '',
+      photo_url: '',
       email: '',
       password: '',
       lastName: '',
@@ -72,26 +74,26 @@ export default ({
   methods:{
     signingUp(){
       if (this.email === this.requestEmail && this.password === this.requestPassword) {
-        firebase
-          .auth()
-          .createUserWithEmailAndPassword(this.email, this.password)
-          .then(() =>{
-            location.replace('/chat');
-          })
-          .catch(() => {
-            toastr["error"]("The email address is already in use by another account", "Error")
-            toastr.options = AppService.toastrOptions;
-          });
+        firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
+        .then(() =>{
+          let fullName = `${this.name} ${this.lastName}`;
+            toastr['success'](`Welcome ${fullName}`, 'Successful');
+            setTimeout(() =>{
+              location.replace('/chat');
+            },1500);
+        })
+        .catch(() => {
+          toastr["error"]("The email address is already in use by another account", "Error");
+        });
       } else {
         toastr["error"]("The email or password do not match", "Error");
-        toastr.options = AppService.toastrOptions;
       }
     },
-    signUpGoogle(){
-      AppService.signUpWithGoogle();
+    signUpWithGoogle(){
+      AppService.signInWithGoogle();
     },
-    signUpFacebook(){
-      AppService.signUpWithFacebook();
+    signUpWithFacebook(){
+      AppService.signInWithFacebook();
     },
     emitRegistered(){
       this.registered = true;
