@@ -59,10 +59,10 @@ export default {
         })
     },
     loginWithGoogle(){
-      AppService.signUpWithGoogle();
+      AppService.signInWithGoogle();
     },
     loginWithFacebook(){
-      AppService.signUpWithFacebook();
+      AppService.signInWithFacebook();
     },
     emitRegistered(){
       this.registered = false;

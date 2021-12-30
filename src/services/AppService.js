@@ -1,63 +1,47 @@
 import firebase from 'firebase/compat/app';
+import { collection, addDoc, doc, getDoc } from "firebase/firestore";
+import { getFirestore } from "firebase/firestore";
 import toastr from 'toastr';
 
 export default{
   name: 'AppService',
-  data(){
-    return{
-      toastrOptions: {
-        "closeButton": true,
-        "debug": false,
-        "newestOnTop": false,
-        "progressBar": false,
-        "positionClass": "toast-top-right",
-        "preventDuplicates": false,
-        "onclick": null,
-        "showDuration": "300",
-        "hideDuration": "1000",
-        "timeOut": "5000",
-        "extendedTimeOut": "1000",
-        "showEasing": "swing",
-        "hideEasing": "linear",
-        "showMethod": "fadeIn",
-        "hideMethod": "fadeOut"
-      }
-    }
-  },
-  signUpWithGoogle(){
-    const provider = new firebase.auth.GoogleAuthProvider();
-      firebase.auth().signInWithPopup(provider)
-      .then(data => {
-        toastr['success'](`Welcome ${data.user.displayName}`,"successful");
-        toastr.options = this.toastrOptions;
-        setTimeout(() =>{
-          location.replace('/chat');
+  signInWithGoogle(){
+    const googleProvider = new firebase.auth.GoogleAuthProvider();
+
+    const googleSignIn = async () => {
+      await firebase.auth().signInWithPopup(googleProvider)
+      .then(user_data => {
+        toastr["success"](`Welcome ${user_data.user.displayName}`, "Successful")
+        setTimeout(() => {
+          location.replace('/chat')
         },1500)
       })
-      .catch(err => {
-        toastr["error"](err, "Error")
-        toastr.options = this.toastrOptions;
+      .catch(error => {
+        toastr["error"](error, "Error")
       });
+    }
+    googleSignIn();
   },
-  signUpWithFacebook(){
-    const provider = new firebase.auth.FacebookAuthProvider();
-    provider.addScope('user_photo')
+  signInWithFacebook(){
+    const facebookProvider = new firebase.auth.FacebookAuthProvider();
 
-    firebase.auth().signInWithPopup(provider)
-    .then(data => {
-      toastr['success'](`Welcome ${data.user.displayName}`,"successful");
-      toastr.options = this.toastrOptions;
+    const facebookSignIn = async () => {
+     await firebase.auth().signInWithPopup(facebookProvider)
+    .then(user_data => {
+      toastr['success'](`Welcome ${user_data.user.displayName}`,"Successful");
       setTimeout(() =>{
         location.replace('/chat');
       },1500)
       })
-      .catch(err => {
-        console.log(err)
-        toastr["error"](err, "Error")
-        toastr.options = this.toastrOptions;
+      .catch(error => {
+        toastr["error"](error, "Error")
       })
+    }
+    facebookSignIn();
   },
   logout(){
-    firebase.auth().signOut().then().catch(err => alert(err))
-  }
+    firebase.auth().signOut().then().catch(error => {
+      toastr['error'](error,"Error");
+    })
+  },
 }

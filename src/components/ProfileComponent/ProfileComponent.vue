@@ -17,10 +17,6 @@
                     <td>{{ user_email }}</td>
                 </tr>
                 <tr>
-                    <td class="first-column">Password:</td>
-                    <td>*********</td>
-                </tr>
-                <tr>
                     <td></td>
                     <td><button class="edit-button">Edit</button></td>
                 </tr>
@@ -45,9 +41,13 @@ export default {
     getUserData(){
       const auth = getAuth();
       onAuthStateChanged(auth, (user) => {
-        this.user_name = user.displayName;
-        this.photo_url = user.photoURL;
-        this.user_email = user.email;
+        if (user){
+          this.user_name = user.displayName;
+          this.photo_url = user.photoURL;
+          this.user_email = user.email;
+        } else {
+          this.user_name = ''
+        }
       }); 
     }
   },
