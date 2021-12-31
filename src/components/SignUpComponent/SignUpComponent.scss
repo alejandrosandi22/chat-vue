@@ -9,10 +9,10 @@
     outline: none;
     border: none;
     border-radius: 2px;
-    font-size: 1em;
+    font-size: 1vw;
   }
   & > label{
-    font-size: 1em;
+    font-size: 1vw;
   }
   .emptyInput{
     height: 4vh;
@@ -120,7 +120,7 @@
     }
     & > h2{
       height: 20%;
-      font-size: 3em;
+      font-size: 3vw;
       color: #fff;
       text-transform: uppercase;
       text-align: center;
@@ -157,6 +157,7 @@
         text-decoration: underline;
         color: rgba(#fff, .5);
         margin: 10px;
+        font-size: 1vw;
         &:hover{
           color: #fff;
         }

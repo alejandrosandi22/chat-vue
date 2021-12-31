@@ -19,6 +19,7 @@
     cursor: text;
     transition: .5s;
     margin-left: 5px;
+    font-size: 1vw;
   }
 }
 
@@ -97,8 +98,8 @@
 
 @mixin google_button {
   position: relative;
-  height: 40px;
-  width: 200px;
+  height: 4vh;
+  width: 12vw;
   padding-left: 15px;
   outline: none;
   border: none;
@@ -118,8 +119,8 @@
 
 @mixin facebook_button {
   position: relative;
-  height: 40px;
-  width: 200px;
+  height: 4vh;
+  width: 12vw;
   padding-left: 15px;
   outline: none;
   border: none;

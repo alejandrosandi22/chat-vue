@@ -4,7 +4,7 @@
     <div class="form-wrapper">
       <h2>Sign Up</h2>
       <div class="form-container">
-        <form class="form" id="form">
+        <form class="form" id="form" @submit.prevent="signup">
           <div class="line-one">
             <div class="name">
               <input type="text" id="name" class="input"  v-model="name" :class="{'emptyInput': name !== ''}" required>
@@ -21,7 +21,7 @@
               <label for="email">Email</label>
             </div>
             <div class="request-email">
-              <input type="email" id="request-email" class="input"  v-model="requestEmail" :class="{'emptyInput': requestEmail !== ''}" required>
+              <input type="text" id="request-email" class="input"  v-model="requestEmail" :class="{'emptyInput': requestEmail !== ''}" required>
               <label for="request-email">Request Email</label>
             </div>
           </div>
@@ -39,7 +39,7 @@
       </div>
       <div class="actions">
           <button @click="clearInput()" class="cancel"></button>
-          <button @click="signingUp()" form="form" type="submit" value="signup" class="submit"></button>
+          <button @click="signUpWithEmail()" form="form" type="submit" value="signup" class="submit"></button>
       </div>
       <div class="account">
         <a @click="emitRegistered()">Do you already have an account?</a>
@@ -53,7 +53,7 @@
 
 <script>
 import firebase from 'firebase/compat/app';
-import { getFirestore, collection, addDoc, doc, getDoc } from "firebase/firestore";
+import { getFirestore, doc, setDoc } from "firebase/firestore";
 import AppService from '../../services/AppService';
 import toastr from 'toastr';
 
@@ -74,15 +74,29 @@ export default ({
     }
   },
   methods:{
-    signingUp(){
-      if (this.email === this.requestEmail && this.password === this.requestPassword) {
+    signUpWithEmail(){
+      if (this.password === this.requestPassword) {
         firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
-        .then(() =>{
+        .then((user_data) =>{
           let fullName = `${this.name} ${this.lastName}`;
-            toastr['success'](`Welcome ${fullName}`, 'Successful');
-            setTimeout(() =>{
-              location.replace('/chat');
-            },1500);
+          let userData = {
+            fullName: fullName,
+            email: this.email,
+            photoURL: this.requestEmail
+          }
+          async function sendUserData () {
+            await setDoc(doc(this.db, 'users' , user_data.user.uid), userData)
+              .then(() => {
+                toastr['success'](`Welcome! ${fullName}`, 'Successful');
+                setTimeout(() =>{
+                  location.replace('/chat');
+                },1500);
+              })
+              .catch(error => {
+                toastr["error"](error, "Error");
+              })
+          }
+          sendUserData();
         })
         .catch(() => {
           toastr["error"]("The email address is already in use by another account", "Error");
