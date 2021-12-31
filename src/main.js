@@ -3,7 +3,6 @@ import App from './App.vue';
 import router from './router'
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/auth';
-import { initializeApp } from 'firebase/app';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBm7bb1VKPMK_y3YLDRMvuxDo1J0S4VEAA",
@@ -14,6 +13,6 @@ const firebaseConfig = {
   appId: "1:193689647367:web:bedaca9e34b5273e46ada2"
 };
 
-const app = firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
 
 createApp(App).use(router).mount('#app');

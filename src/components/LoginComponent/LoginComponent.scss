@@ -40,15 +40,18 @@
         @include mixin.center-flex();
       }
       .form{
+        position: relative;
         display: flex;
         flex-direction: column;
         width: 90%;
         .email{
           @include mixin.input-effect();
+          height: 4vh;
         }
         .password{
           margin: 20px 0;
           @include mixin.input-effect();
+          height: 9vh;
         }
         .input{
           padding-left: 15px;
@@ -108,7 +111,6 @@
             margin: auto;
             border-radius: 2px;
             background: #D8E3E7;
-            //background: transparent;
             transition: .5s;
           }
           &::before{
@@ -137,6 +139,7 @@
           text-decoration: underline;
           color: rgba(#fff, .5);
           margin: 10px;
+          font-size: .9em;
           &:hover{
               color: #fff;
           }
