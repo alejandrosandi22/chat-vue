@@ -29,8 +29,10 @@
         border: 1px solid rgba(#fff, 0.125);
         box-shadow: 0 25px 45px #000000AA;
         .users-area{
-            width: 25%;
+            position: relative;
+            width: 30%;
             height: 100%;
+            border-right: 2px solid rgba(#fff, 0.125);
             & > h2{
                 height: 10%;
                 color: #fff;
@@ -39,39 +41,43 @@
                 @include mixin.center-flex();
                 border-bottom: 2px solid rgba(#fff, 0.125);
             }
-            .user-wrapper{
-                border-bottom: 2px solid rgba(#fff, 0.125);
+            .all-users-wrapper{
                 width: 100%;
-                height: 4em;
-                @include mixin.center-flex();
-                justify-content: initial;
-                cursor: pointer;
-                overflow: hidden;
-                &:hover{
-                    filter: contrast(70%);
-                }
-                .user-photo{
-                    border-radius: 50%;
-                    height: 70%;
-                    margin: 0 8px;
-                }
-                .user{
-                    .user-name{
-                        font-size: 1em;
-                        word-break:break-all;
+                height: calc(90% - 1px);
+                overflow-y: scroll;
+                .user-wrapper{
+                    border-bottom: 2px solid rgba(#fff, 0.125);
+                    width: 100%;
+                    height: 4em;
+                    @include mixin.center-flex();
+                    justify-content: initial;
+                    cursor: pointer;
+                    overflow: hidden;
+                    &:hover{
+                        filter: contrast(70%);
                     }
-                    .user-data{
-                        font-size: .8em;
-                        word-break:break-all;
+                    .user-photo{
+                        border-radius: 50%;
+                        height: 70%;
+                        margin: 0 8px;
+                    }
+                    .user{
+                        .user-name{
+                            font-size: 1em;
+                            word-break:break-all;
+                        }
+                        .user-data{
+                            font-size: .8em;
+                            word-break:break-all;
+                        }
                     }
                 }
             }
         }
-        .message{
+        .message-area-wrapper{
             position: relative;
-            width: 75%;
+            width: 70%;
             height: 100%;
-            border-left: 2px solid rgba(#fff, 0.125);
             .actual-contact{
                 display: flex;
                 align-items: center;
@@ -96,27 +102,43 @@
                     }
                 }
             }
+            .messeges-container{
+                width: 100%;
+                height: 80%;
+            }
             .input-text{
-                position: absolute;
                 width: 100%;
                 bottom: 0;
+                border-top: 2px solid rgba(#fff, 0.125);
                 & > input{
                     padding: 0 5px;
                     width: 90%;
-                    height: 25px;
+                    height: 4vh;
                     border: none;
                     border-radius: 2px;
                     outline: none;
+                    margin: 10px;
                 }
                 .send{
-                    margin: 0 10px;
-                    font-size: 1.1em;
+                    font-size: 1vw;
+                    margin-left: 2px;
                     cursor: pointer;
                     color: #fff;
                     &:hover{
                         color: rgb(221, 221, 221);
                     }
                 }
+            }
+        }
+        .no-selected-user{
+            position: relative;
+            width: 70%;
+            height: 100%;
+            @include mixin.center-flex();
+            & > h3{
+                color: #fff;
+                font-weight: 300;
+                font-size: 2vw;
             }
         }
     }

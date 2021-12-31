@@ -33,7 +33,7 @@
             @include mixin.center-flex();
             justify-content: flex-start;
             color: #fff;
-            font-size: 2em;
+            font-size: 2.5vw;
             font-weight: 300;
         }
         & > table{
@@ -61,7 +61,7 @@
                     height: 30px;
                     width: 50%;
                     color: #fff;
-                    font-size: 1em;
+                    font-size: 1.4vw;
                     & > img{
                         height: 100%;
                         border-radius: 50%;

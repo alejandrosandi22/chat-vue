@@ -74,29 +74,26 @@ export default ({
     }
   },
   methods:{
-    signUpWithEmail(){
+   signUpWithEmail(){
       if (this.password === this.requestPassword) {
         firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
-        .then((user_data) =>{
+        .then(async (user_data) =>{
           let fullName = `${this.name} ${this.lastName}`;
           let userData = {
             fullName: fullName,
             email: this.email,
             photoURL: this.requestEmail
           }
-          async function sendUserData () {
-            await setDoc(doc(this.db, 'users' , user_data.user.uid), userData)
-              .then(() => {
-                toastr['success'](`Welcome! ${fullName}`, 'Successful');
-                setTimeout(() =>{
-                  location.replace('/chat');
-                },1500);
-              })
-              .catch(error => {
-                toastr["error"](error, "Error");
-              })
-          }
-          sendUserData();
+          await setDoc(doc(this.db, 'users' , user_data.user.uid), userData)
+            .then(() => {
+              toastr['success'](`Welcome! ${fullName}`, 'Successful');
+              setTimeout(() =>{
+                location.replace('/chat');
+              },1500);
+            })
+            .catch(error => {
+              toastr["error"](error, "Error");
+            })
         })
         .catch(() => {
           toastr["error"]("The email address is already in use by another account", "Error");
