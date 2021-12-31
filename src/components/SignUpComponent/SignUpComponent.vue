@@ -4,29 +4,31 @@
     <div class="form-wrapper">
       <h2>Sign Up</h2>
       <div class="form-container">
-        <form class="form" id="form" @submit.prevent="signUp">
-          <div class="left">
+        <form class="form" id="form">
+          <div class="line-one">
             <div class="name">
               <input type="text" id="name" class="input"  v-model="name" :class="{'emptyInput': name !== ''}" required>
               <label for="name">Name</label>
             </div>
-            <div class="email">
-              <input type="email" id="email" class="input"  v-model="email" :class="{'emptyInput': email !== ''}" required>
-              <label for="email">Email</label>
-            </div>
-            <div class="password">
-              <input type="password" id="password" class="input" v-model="password" :class="{'emptyInput': password !== ''}" required>
-              <label for="password">Password</label>
-            </div>
-          </div>
-          <div class="right">
             <div class="last-name">
               <input type="text" id="last-name" class="input"  v-model="lastName" :class="{'emptyInput': lastName !== ''}" required>
               <label for="last-name">Last Name</label>
             </div>
+          </div>
+          <div class="line-two">
+            <div class="email">
+              <input type="email" id="email" class="input"  v-model="email" :class="{'emptyInput': email !== ''}" required>
+              <label for="email">Email</label>
+            </div>
             <div class="request-email">
               <input type="email" id="request-email" class="input"  v-model="requestEmail" :class="{'emptyInput': requestEmail !== ''}" required>
               <label for="request-email">Request Email</label>
+            </div>
+          </div>
+          <div class="line-three">
+            <div class="password">
+              <input type="password" id="password" class="input" v-model="password" :class="{'emptyInput': password !== ''}" required>
+              <label for="password">Password</label>
             </div>
             <div class="request-password">
               <input type="password" id="request-password" class="input" v-model="requestPassword" :class="{'emptyInput': requestPassword !== ''}" required>

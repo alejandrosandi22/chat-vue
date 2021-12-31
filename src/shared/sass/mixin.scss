@@ -1,16 +1,15 @@
 @use './animations.scss';
 
 @mixin input-effect {
-  position: relative;
   display: flex;
   align-items: center;
-  height: 6vh;
+  height: 9vh;
   & > input{
     position: absolute;
     &:focus ~ label{
       position: absolute;
       color: #fff;
-      transform: translateY(-155%);
+      transform: translateY(-160%);
       transition: .5s;
     }
   }

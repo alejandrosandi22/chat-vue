@@ -1,6 +1,28 @@
 @use '/src/shared/sass/mixin.scss';
 @use '../../shared//sass/animations.scss';
 
+@mixin input{
+  .input{
+    padding-left: 15px;
+    width: calc(100% - 15px);
+    height: 4vh;
+    outline: none;
+    border: none;
+    border-radius: 2px;
+    font-size: 1em;
+  }
+  & > label{
+    font-size: 1em;
+  }
+  .emptyInput{
+    height: 4vh;
+    & ~ label{
+      transform: translateY(-160%);
+      color: #fff;
+    }
+  }
+}
+
 .sign-up-container{
   width: 100vw;
   height: 100vh;
@@ -33,86 +55,66 @@
     border: 1px solid rgba(#fff, 0.125);
     box-shadow: 0 25px 45px #000000AA;
     .form-container{
-      display: flex;
       width: 90%;
       .form{
+        position: relative;
         width: 100%;
-        display: flex;
-        .left{
-          @include mixin.center-flex();
-          flex-direction: column;
-          width: 50%;
+        .line-one{
+          position: relative;
+          display: flex;
+          width: 100%;
+          height: 9vh;
           .name{
-            width: 95%;
+            position: absolute;
+            width: 48%;
             @include mixin.input-effect();
           }
-          .email{
-            width: 95%;
-            margin-top: 20px;
-            @include mixin.input-effect();
-          }
-          .password{
-            width: 95%;
-            margin-top: 20px;
-            @include mixin.input-effect();
-          }
-          .input{
-            padding-left: 15px;
-            width: calc(100% - 15px);
-            height: 4vh;
-            outline: none;
-            border: none;
-            border-radius: 2px;
-            font-size: 1em;
-          }
-          & > label{
-            font-size: 1em;
-          }
-          .emptyInput{
-            height: 4vh;
-            & ~ label{
-              transform: translateY(-125%);
-              color: #fff;
-            }
-          }
-        }
-        .right{
-          @include mixin.center-flex();
-          flex-direction: column;
-          width: 50%;
           .last-name{
-            width: 95%;
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 48%;
+            @include mixin.input-effect();
+          }
+          @include input();
+        }
+        .line-two{
+          position: relative;
+          display: flex;
+          align-items: center;
+          width: 100%;
+          height: 9vh;
+          .email{
+            position: absolute;
+            top: 0;
+            width: 48%;
             @include mixin.input-effect();
           }
           .request-email{
-            width: 95%;
-            margin-top: 20px;
+            position: absolute;
+            right: 0;
+            width: 48%;
+            @include mixin.input-effect();
+          }
+          @include input();
+        }
+        .line-three{
+          position: relative;
+          display: flex;
+          width: 100%;
+          height: 9vh;
+          .password{
+            position: absolute;
+            width: 48%;
             @include mixin.input-effect();
           }
           .request-password{
-            width: 95%;
-            margin-top: 20px;
+            position: absolute;
+            right: 0;
+            width: 48%;
             @include mixin.input-effect();
           }
-          .input{
-            padding-left: 15px;
-            width: calc(100% - 15px);
-            height: 4vh;
-            outline: none;
-            border: none;
-            border-radius: 2px;
-            font-size: 1em;
-          }
-          & > label{
-            font-size: 1em;
-          }
-          .emptyInput{
-            height: 4vh;
-            & ~ label{
-              transform: translateY(-125%);
-              color: #fff;
-            }
-          }
+          @include input();
         }
       }
     }
