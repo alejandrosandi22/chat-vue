@@ -26,30 +26,37 @@
 </template>
 
 <script>
+import { getDocs, getFirestore, collection } from "firebase/firestore";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 export default {
     name: 'ProfileComponent',
     data(){
     return{
+      current_user: [],
       user_name: '',
       photo_url: '',
       user_email: '',
     }
   },
   methods:{
-    getUserData(){
+    async getUserData(){
       const auth = getAuth();
       onAuthStateChanged(auth, (user) => {
-        if (user){
-          this.user_name = user.displayName;
-          this.photo_url = user.photoURL;
-          this.user_email = user.email;
-        } else {
-          this.user_name = ''
+        if (user) {
+          this.user_uid = user.uid;
         }
-      }); 
-    }
+      });
+      const querySnapshot = await getDocs(collection(getFirestore(), "users"));
+      querySnapshot.forEach((doc) => {
+        if (doc.id === this.user_uid){
+          this.current_user.push(doc.data());
+        } 
+      });
+      this.user_name = this.current_user[0].fullName;
+      this.user_email = this.current_user[0].email;
+      this.photo_url = this.current_user[0].photoURL
+    },
   },
   mounted() {
     this.getUserData();
