@@ -41,13 +41,11 @@
             width: 90%;
             height: 80%;
             tr{
+                height: 25%;
                 width: 100%;
                 &:nth-child(1){
                     .first-column{
                         height: 100%;
-                    }
-                    & > td{
-                        height: 100px;
                     }
                 }
                 .first-column{
@@ -58,12 +56,11 @@
                     justify-content: end;
                 }
                 td{
-                    height: 30px;
                     width: 50%;
                     color: #fff;
                     font-size: 1.4vw;
                     & > img{
-                        height: 100%;
+                        width: 10vw;
                         border-radius: 50%;
                     }
                     .edit-button{

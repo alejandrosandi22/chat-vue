@@ -6,7 +6,7 @@
                 <h2 @click="getDocs">Users</h2>
                 <div class="all-users-wrapper">
                   <div class="user-wrapper" v-for="user in users" :key="user.id" @click="selectUserToChat(user)">
-                    <img class="user-photo" :src="user.photoURL" @error="imgError = true" alt="profile photo">
+                    <img draggable="false" class="user-photo" :src="user.photoURL" @error="imgError" alt="profile photo">
                     <div class="user">
                       <h3 class="user-name">{{ user.fullName }}</h3>
                       <p class="user-data">{{ user.email }}</p>
@@ -40,13 +40,15 @@
 </template>
 
 <script>
-import { getDocs, getFirestore, collection } from "firebase/firestore";
+import { getDocs, getFirestore, collection, query, orderBy, limit } from "firebase/firestore";
 import { getAuth, onAuthStateChanged, getUsers } from "firebase/auth";
+import { onBeforeMount } from '@vue/runtime-core';
 
 export default {
   name: 'ChatComponent',
   data(){
     return{
+      auth: getAuth(),
       selectedUser: false,
       users: [],
       defaultImageError: require('../../assets/user.png'),
@@ -65,13 +67,12 @@ export default {
       this.photo_url = user.photoURL;
     },
     async getDocs(){
-      const auth = getAuth();
-      onAuthStateChanged(auth, (user) => {
+      onAuthStateChanged(this.auth, (user) => {
         if (user) {
           this.user_uid = user.uid;
         }
       });
-      const querySnapshot = await getDocs(collection(getFirestore(), "users"));
+      const querySnapshot = await getDocs(collection(this.db, "users"), orderBy('fullName', 'desc'));
       querySnapshot.forEach((doc) => {
         if (doc.id != this.user_uid){
           this.users.push(doc.data());

@@ -73,59 +73,7 @@
           }
         }
         .submit{
-          position: relative;
-          align-self: center;
-          width: 140px;
-          height: 40px;
-          background: #D8E3E7;
-          border: none;
-          border-radius: 2px;
-          outline: none;
-          cursor: pointer;
-          overflow: hidden;
-          &:hover{
-            &::before{
-              background: rgba(#126E82, .7);
-              animation: rotate 2s linear infinite;
-              transition: .5s;
-            }
-          }
-          &:active{
-            background: #d0dadd;
-            transition: .1s;
-            &::after{
-              background: #d0dadd;
-              transition: .1s;
-            }
-          }
-          &::after{
-            content: 'Login';
-            position: absolute;
-            @include mixin.center-flex();
-            width: 96%;
-            height: 90%;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            margin: auto;
-            border-radius: 2px;
-            background: #D8E3E7;
-            transition: .5s;
-          }
-          &::before{
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: -25%;
-            margin: auto;
-            width: 150%;
-            height: 50%;
-            border-radius: 2px;
-            animation: rotate 2s linear infinite;
-            transition: all .5s;
-          }
+         @include mixin.auth_buttons();
         }
       }
       & > span {

@@ -56,6 +56,9 @@ export default {
       this.user_name = this.current_user[0].fullName;
       this.user_email = this.current_user[0].email;
       this.photo_url = this.current_user[0].photoURL
+      if (this.current_user[0].photoURL === '') {
+        this.photo_url = require('../../assets/user.png');
+      }
     },
   },
   mounted() {
