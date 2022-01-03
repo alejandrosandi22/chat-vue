@@ -41,8 +41,8 @@
 @mixin auth-buttons {
   position: relative;
   align-self: center;
-  width: 140px;
-  height: 40px;
+  width: 8vw;
+  height: 5vh;
   background: #D8E3E7;
   border: none;
   border-radius: 2px;
@@ -78,6 +78,7 @@
     margin: auto;
     border-radius: 2px;
     background: #D8E3E7;
+    font-size: 1vw;
     transition: .5s;
   }
   &::before{
@@ -98,8 +99,8 @@
 
 @mixin google_button {
   position: relative;
-  height: 4vh;
-  width: 12vw;
+  height: 5vh;
+  width: 14vw;
   padding-left: 15px;
   outline: none;
   border: none;
@@ -119,8 +120,8 @@
 
 @mixin facebook_button {
   position: relative;
-  height: 4vh;
-  width: 12vw;
+  height: 5vh;
+  width: 14vw;
   padding-left: 15px;
   outline: none;
   border: none;

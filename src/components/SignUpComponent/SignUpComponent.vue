@@ -20,9 +20,11 @@
               <input type="email" id="email" class="input"  v-model="email" :class="{'emptyInput': email !== ''}" required>
               <label for="email">Email</label>
             </div>
-            <div class="request-email">
-              <input type="text" id="request-email" class="input"  v-model="requestEmail" :class="{'emptyInput': requestEmail !== ''}" required>
-              <label for="request-email">Request Email</label>
+            <div class="photo-user">
+              <label for="photo_user">
+                <input type="file" id="photo_user" class="input" @change="selectedPhoto($event)" accept="image/png, image/gif, image/jpeg">
+                <span class="file-custom"></span>
+              </label>
             </div>
           </div>
           <div class="line-three">
@@ -53,6 +55,7 @@
 
 <script>
 import firebase from 'firebase/compat/app';
+import 'firebase/compat/storage';
 import { getFirestore, doc, setDoc } from "firebase/firestore";
 import AppService from '../../services/AppService';
 import toastr from 'toastr';
@@ -69,12 +72,18 @@ export default ({
       lastName: '',
       name: '',
       requestPassword: '',
-      requestEmail: '',
       registered: true,
+      selectedUserPhoto: '',
+      selectedPhotoName: '',
     }
   },
   methods:{
+  selectedPhoto(event){
+    this.selectedUserPhoto = event.target.files[0];
+  },
    signUpWithEmail(){
+     const storageRef = firebase.storage().ref();
+     
       if (this.password === this.requestPassword) {
         firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
         .then(async (user_data) =>{
@@ -82,8 +91,23 @@ export default ({
           let userData = {
             fullName: fullName,
             email: this.email,
-            photoURL: this.requestEmail
+            photoURL: '',
           }
+          if (this.selectedUserPhoto != '') {
+            await storageRef.child(`/photos/${user_data.user.uid}`).put(this.selectedUserPhoto)
+              .then(async () => {
+                await storageRef.child(`/photos/${user_data.user.uid}`).getDownloadURL()
+                .then((url) => {
+                  console.log(url)
+                  userData.photoURL = url;
+                  console.log(userData);
+                  console.log(userData.photoURL)
+                })
+                .catch((error) => toastr['error'](error, 'An error has occurred'))
+              })
+              .catch((error) => toastr['error'](error, 'An error has occurred'))
+          }
+          
           await setDoc(doc(this.db, 'users' , user_data.user.uid), userData)
             .then(() => {
               toastr['success'](`Welcome! ${fullName}`, 'Successful');

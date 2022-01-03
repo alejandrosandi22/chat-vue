@@ -90,11 +90,13 @@
             width: 48%;
             @include mixin.input-effect();
           }
-          .request-email{
+          .photo-user{
             position: absolute;
             right: 0;
             width: 48%;
-            @include mixin.input-effect();
+            & > label{
+              color: #fff;
+            }
           }
           @include input();
         }
