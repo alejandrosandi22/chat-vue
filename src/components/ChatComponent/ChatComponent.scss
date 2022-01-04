@@ -45,6 +45,7 @@
                 width: 100%;
                 height: calc(90% - 1px);
                 overflow-y: scroll;
+                color: #fff;
                 .user-wrapper{
                     border-bottom: 2px solid rgba(#fff, 0.125);
                     width: 100%;
@@ -64,17 +65,21 @@
                     .user{
                         .user-name{
                             font-size: 1em;
+                            font-weight: 300;
                             word-break:break-all;
+                            color: #fff;
                         }
                         .user-data{
                             font-size: .8em;
+                            font-weight: 300;
+                            color: #fff;
                             word-break:break-all;
                         }
                     }
                 }
             }
         }
-        .message-area-wrapper{
+        .messege-area-wrapper{
             position: relative;
             width: 70%;
             height: 100%;
@@ -103,8 +108,36 @@
                 }
             }
             .messeges-container{
+                position: relative;
                 width: 100%;
                 height: 80%;
+                overflow-y: scroll;
+                .messege-wrapper{
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    .messege{
+                        position: relative;
+                        background: #D8E3E7;
+                        width: 40%;
+                        border-radius: 10px;
+                        margin: 10px;
+                        .text{
+                            padding: 6px;
+                            font-size: 1.1vw;
+                        }
+                        .time{
+                            padding: 0px 6px 6px 0;
+                            text-align: end;
+                            font-size: 1.1vw;
+                        }
+                    }
+                    .current-user{
+                        background: #126E82;
+                        color: #fff;
+                        align-self: flex-end;
+                    }
+                }
             }
             .input-text{
                 width: 100%;
@@ -118,6 +151,7 @@
                     border-radius: 2px;
                     outline: none;
                     margin: 10px;
+                    font-size: 1vw;
                 }
                 .send{
                     font-size: 1vw;
