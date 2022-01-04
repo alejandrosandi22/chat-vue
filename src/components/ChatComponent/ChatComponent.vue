@@ -3,7 +3,7 @@
         <span class="blur-background"></span>
         <div class="chat-wrapper">
             <div class="users-area">
-                <h2 @click="showMessege">Users</h2>
+                <h2 @click="test">Users</h2>
                 <div class="all-users-wrapper">
                   <div class="user-wrapper" v-for="user in users" :key="user.id" @click="selectUserToChat(user)">
                     <img draggable="false" class="user-photo" :src="user.photoURL" @error="imgError" alt="profile photo">
@@ -22,15 +22,16 @@
                         <h3>{{ user_email }}</h3>
                     </div>
                 </div>
-                <div v-if="currentUser" class="messeges-container">
+                <div  v-if="currentUser" class="messeges-container">
                   <div class="messege-wrapper" v-for="userMessege in usersMesseges" :key="userMessege.key" >
-                  <div class="messege"
-                  v-if="(userMessege.transmitter === currentUser && userMessege.receive === user_id) || (userMessege.transmitter === user_id && userMessege.receive === currentUser)"
-                  :class="(userMessege.transmitter === currentUser ? 'current-user' : 'messege')">
-                    <p class="text">{{userMessege.messege }}</p>
-                    <h4 class="time">{{ userMessege.time }}</h4>
+                    <div class="messege"
+                      v-if="(userMessege.transmitter === currentUser && userMessege.receive === user_id) || (userMessege.transmitter === user_id && userMessege.receive === currentUser)"
+                      :class="(userMessege.transmitter === currentUser ? 'current-user' : 'messege')">
+                      <p class="text">{{userMessege.messege }}</p>
+                      <h4 class="time">{{ userMessege.time }}</h4>
+                    </div>
                   </div>
-                  </div>
+                  <div id="scrble" ref="scrollable"></div>
                 </div>
                 <div class="input-text">
                     <input v-model="messegeToSend" type="text" placeholder="Messege">
@@ -84,6 +85,9 @@ export default {
       this.photo_url = user.photoURL;
       this.user_id = user.id;
       
+      setTimeout(() => {
+            this.$refs['scrollable'].scrollIntoView({behavior: 'smooth'});
+          },300)
     },
     setTime(date) {
       var hours = date.getHours();
@@ -109,11 +113,11 @@ export default {
       await setDoc(doc(collection(this.db, 'messeges')),this.dataMessege)
         .then(() => {
           this.messegeToSend = '';
+          this.$refs['scrollable'].scrollIntoView({behavior: 'smooth'});
         })
         .catch((error) => {
           toastr['error'](error, 'Error');
-        })
-
+      })
     },
     async getDocs(){
       const usersCollection = collection(this.db, 'users');
@@ -136,7 +140,13 @@ export default {
         snapchot.docs.forEach((doc) => {
           this.usersMesseges.push(doc.data());
         })
-      })
+        if (this.selectedUser === true) {
+          console.log('Hola Mundo!')
+          setTimeout(() => {
+            this.$refs['scrollable'].scrollIntoView({behavior: 'smooth'});
+          },300)
+        }
+      });
     },
     imgError(e){
       e.target.src = this.defaultImageError;
@@ -146,7 +156,7 @@ export default {
     this.getCurrentUser();
     this.getDocs();
     this.uploadMesseges();
-  }
+  },
 }
 </script>
 
