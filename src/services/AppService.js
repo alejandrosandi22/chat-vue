@@ -1,8 +1,9 @@
+import { getFirestore, setDoc, doc, getDoc } from "firebase/firestore";
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/storage';
 import 'firebase/auth'
-import { getFirestore, setDoc, doc, getDoc } from "firebase/firestore";
 import toastr from 'toastr';
+
 
 async function signInWithGoogle() {
   const googleProvider = new firebase.auth.GoogleAuthProvider();

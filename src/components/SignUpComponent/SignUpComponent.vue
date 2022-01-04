@@ -98,10 +98,7 @@ export default ({
               .then(async () => {
                 await storageRef.child(`/photos/${user_data.user.uid}`).getDownloadURL()
                 .then((url) => {
-                  console.log(url)
                   userData.photoURL = url;
-                  console.log(userData);
-                  console.log(userData.photoURL)
                 })
                 .catch((error) => toastr['error'](error, 'An error has occurred'))
               })
