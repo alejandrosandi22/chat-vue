@@ -1,4 +1,5 @@
 @use '../../shared/sass/mixin.scss';
+@use '../../shared/sass/responsive.scss';
 
 .profile-container{
     width: 100vw;
@@ -75,3 +76,5 @@
        
     }
 }
+
+@include responsive.profile();

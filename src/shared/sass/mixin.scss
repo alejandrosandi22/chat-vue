@@ -1,4 +1,5 @@
 @use './animations.scss';
+@use './responsive.scss';
 
 @mixin input-effect {
   display: flex;
@@ -20,6 +21,16 @@
     transition: .5s;
     margin-left: 5px;
     font-size: 1vw;
+  }
+  @media(max-width: 1024px){
+    label{
+      font-size: 3vw;
+    }
+  }
+  @media(max-width: 640px){
+    label{
+      font-size: 4.45vw;
+    }
   }
 }
 
@@ -94,7 +105,6 @@
     animation: rotate 2s linear infinite;
     transition: all .5s;
   }
-    
 }
 
 @mixin google_button {

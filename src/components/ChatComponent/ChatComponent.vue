@@ -2,8 +2,8 @@
     <div class="chat-container">
         <span class="blur-background"></span>
         <div class="chat-wrapper">
-            <div class="users-area">
-                <h2 @click="test">Users</h2>
+            <div class="users-area" :class="{'toggle-user': barsToggle === true}">
+                <h2>Users</h2>
                 <div class="all-users-wrapper">
                   <div class="user-wrapper" v-for="user in users" :key="user.id" @click="selectUserToChat(user)">
                     <img draggable="false" class="user-photo" :src="user.photoURL" @error="imgError" alt="profile photo">
@@ -14,31 +14,32 @@
                   </div>
                 </div>
             </div>
-            <div v-if="selectedUser" class="messege-area-wrapper">
-                <div class="actual-contact">
-                    <img :src="photo_url" @error="imgError" alt="profile">
-                    <div>
-                        <h2>{{ user_name }}</h2>
-                        <h3>{{ user_email }}</h3>
-                    </div>
+            <span><i class="fal fa-bars" @click="toggleUsers"></i></span>
+            <div v-if="selectedUser" class="messege-area-wrapper" :class="{'toggle': barsToggle === true}">
+              <div class="actual-contact">
+                <img :src="photo_url" @error="imgError" alt="profile">
+                <div>
+                  <h2>{{ user_name }}</h2>
+                  <h3>{{ user_email }}</h3>
                 </div>
-                <div  v-if="currentUser" class="messeges-container">
-                  <div class="messege-wrapper" v-for="userMessege in usersMesseges" :key="userMessege.key" >
-                    <div class="messege"
-                      v-if="(userMessege.transmitter === currentUser && userMessege.receive === user_id) || (userMessege.transmitter === user_id && userMessege.receive === currentUser)"
-                      :class="(userMessege.transmitter === currentUser ? 'current-user' : 'messege')">
-                      <p class="text">{{userMessege.messege }}</p>
-                      <h4 class="time">{{ userMessege.time }}</h4>
-                    </div>
+              </div>
+                <div  v-if="currentUser" class="messeges-container" >
+                <div class="messege-wrapper" v-for="userMessege in usersMesseges" :key="userMessege.key" >
+                  <div class="messege"
+                    v-if="(userMessege.transmitter === currentUser && userMessege.receive === user_id) || (userMessege.transmitter === user_id && userMessege.receive === currentUser)"
+                    :class="(userMessege.transmitter === currentUser ? 'current-user' : 'messege')">
+                    <p class="text">{{userMessege.messege }}</p>
+                    <h4 class="time">{{ userMessege.time }}</h4>
                   </div>
-                  <div id="scrble" ref="scrollable"></div>
                 </div>
-                <div class="input-text">
-                    <input v-model="messegeToSend" type="text" placeholder="Messege">
-                    <span @click="sendMessege" class="send"><i class="far fa-paper-plane"></i></span>
-                </div>
+                <div id="scrble" ref="scrollable"></div>
+              </div>
+              <div class="input-text">
+                  <input v-on:keyup.enter="sendMessege()" v-model="messegeToSend" type="text" placeholder="Messege">
+                  <span  @click="sendMessege" class="send"><i class="far fa-paper-plane"></i></span>
+              </div>
             </div>
-            <div v-else class="no-selected-user">
+            <div v-else class="no-selected-user" :class="{'toggle': barsToggle === true}">
               <h3>Select one user to chat</h3>
             </div>
         </div>
@@ -68,9 +69,20 @@ export default {
       messegeToSend: '',
       dataMessege: [],
       usersMesseges: [],
+      barsToggle: false,
     }
   },
   methods:{
+    toggleUsers(){
+      console.log(this.barsToggle);
+      //
+      if (!this.barsToggle) {
+        this.barsToggle = true;
+      } else {
+        this.barsToggle = false;
+      }
+      console.log(this.barsToggle);
+    },
     async getCurrentUser(){
       await onAuthStateChanged(this.auth, (user) => {
         if (user) {
@@ -79,6 +91,7 @@ export default {
       });
     },
     selectUserToChat(user){
+      this.barsToggle = false;
       this.selectedUser = true;
       this.user_name = user.fullName;
       this.user_email = user.email;
@@ -141,7 +154,6 @@ export default {
           this.usersMesseges.push(doc.data());
         })
         if (this.selectedUser === true) {
-          console.log('Hola Mundo!')
           setTimeout(() => {
             this.$refs['scrollable'].scrollIntoView({behavior: 'smooth'});
           },300)

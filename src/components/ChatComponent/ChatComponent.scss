@@ -1,4 +1,5 @@
 @use '../../shared/sass/mixin.scss';
+@use '../../shared/sass/responsive.scss';
 
 .chat-container{
     width: 100vw;
@@ -68,16 +69,23 @@
                             font-weight: 300;
                             word-break:break-all;
                             color: #fff;
+                            width: max-content;
                         }
                         .user-data{
                             font-size: .8em;
                             font-weight: 300;
                             color: #fff;
                             word-break:break-all;
+                            width: max-content;
                         }
                     }
                 }
             }
+        }
+        & > span{
+            z-index: 100;
+            color: #fff;
+            display: none;
         }
         .messege-area-wrapper{
             position: relative;
@@ -177,3 +185,5 @@
         }
     }
 }
+
+@include responsive.chatResponsive();
