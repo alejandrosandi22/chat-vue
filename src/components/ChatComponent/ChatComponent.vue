@@ -74,14 +74,7 @@ export default {
   },
   methods:{
     toggleUsers(){
-      console.log(this.barsToggle);
-      //
-      if (!this.barsToggle) {
-        this.barsToggle = true;
-      } else {
-        this.barsToggle = false;
-      }
-      console.log(this.barsToggle);
+      !this.barsToggle ? this.barsToggle = true : this.barsToggle = false;
     },
     async getCurrentUser(){
       await onAuthStateChanged(this.auth, (user) => {

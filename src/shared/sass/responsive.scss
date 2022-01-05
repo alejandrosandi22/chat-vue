@@ -152,9 +152,6 @@
 }
 
 @mixin chatResponsive {
-  @media (max-width: 1024px) {
-
-  }
   @media (max-width: 640px) {
     .chat-container{
       .chat-wrapper{
@@ -222,9 +219,6 @@
 }
 
 @mixin navResponsive {
-  @media (max-width: 1024px) {
-
-  }
   @media (max-width: 640px) {
     .nav-container{
       position: fixed;
