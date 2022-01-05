@@ -191,6 +191,7 @@
           .input-text{
             & > input{
               width: 75%;
+              font-size: 4vw;
             }
             .send{
               font-size: 4vw;
@@ -236,12 +237,10 @@
         & > li{
           margin: 0;
           width: auto;
-          margin: 0 10px 0 10px;
+          margin: 5px 10px 0 10px;
           &:nth-child(3){
             position: absolute;
             top: 0;
-            bottom: 0;
-            margin: 0 auto;
             right: 20px;
           }
           &:hover{
