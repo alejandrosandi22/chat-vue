@@ -2,37 +2,36 @@
   <div class="sign-up-container">
     <div class="blur-background"></div>
     <div class="form-wrapper">
-      <h2>Sign Up</h2>
+      <h2 @click="test">Sign Up</h2>
       <div class="form-container">
         <form class="form" id="form" @submit.prevent="signup">
           <div class="line-one">
-            <div class="name">
-              <input type="text" id="name" class="input"  v-model="name" :class="{'emptyInput': name !== ''}" required>
+            <div class="name input-wrapper">
+              <input type="text" id="name" class="input" v-model="name" :class="{'emptyInput': name !== ''}" required>
               <label for="name">Name</label>
             </div>
-            <div class="last-name">
-              <input type="text" id="last-name" class="input"  v-model="lastName" :class="{'emptyInput': lastName !== ''}" required>
+            <div class="last-name input-wrapper">
+              <input type="text" id="last-name" class="input" v-model="lastName" :class="{'emptyInput': lastName !== ''}" required>
               <label for="last-name">Last Name</label>
             </div>
           </div>
           <div class="line-two">
-            <div class="email">
-              <input type="email" id="email" class="input"  v-model="email" :class="{'emptyInput': email !== ''}" required>
+            <div class="email input-wrapper">
+              <input type="email" id="email" class="input" v-model="email" :class="{'emptyInput': email !== ''}" required>
               <label for="email">Email</label>
             </div>
-            <div class="photo-user">
-              <label for="photo_user">
-                <input type="file" id="photo_user" class="input" @change="selectedPhoto($event)" accept="image/png, image/gif, image/jpeg">
-                <span class="file-custom"></span>
-              </label>
+            <div class="photo-user input-wrapper">
+              <input type="file" id="photo_user" class="input" @change="selectedPhoto($event)" accept="image/png, image/gif, image/jpeg">
+              <label class="label-input-file" for="photo_user">Choose a file</label>
+              <span>{{ photoName }}</span>
             </div>
           </div>
           <div class="line-three">
-            <div class="password">
+            <div class="password input-wrapper">
               <input type="password" id="password" class="input" v-model="password" :class="{'emptyInput': password !== ''}" required>
               <label for="password">Password</label>
             </div>
-            <div class="request-password">
+            <div class="request-password input-wrapper">
               <input type="password" id="request-password" class="input" v-model="requestPassword" :class="{'emptyInput': requestPassword !== ''}" required>
               <label for="request-password">Request Password</label>
             </div>
@@ -75,13 +74,18 @@ export default ({
       registered: true,
       selectedUserPhoto: '',
       selectedPhotoName: '',
+      photoName: 'selected item',
     }
   },
   methods:{
-  selectedPhoto(event){
-    this.selectedUserPhoto = event.target.files[0];
-  },
-   signUpWithEmail(){
+    test(){
+      AppService.test();
+    },
+    selectedPhoto(event){
+      this.selectedUserPhoto = event.target.files[0];
+      this.photoName = this.selectedUserPhoto.name
+    },
+    signUpWithEmail(){
      const storageRef = firebase.storage().ref();
      
       if (this.password === this.requestPassword) {

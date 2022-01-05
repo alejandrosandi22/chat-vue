@@ -1,0 +1,289 @@
+@mixin loginResponsive () {
+  @media (max-width: 1024px) {
+    .login-container{
+      .form-wrapper{
+        width: 90vw;
+        height: 90vh;
+        .form{
+          & > div{
+            .input{
+              font-size: 3vw;
+              height: 45px;
+            }
+          }
+          .submit{
+            width: 170px;
+            height: 60px;
+            &::after{
+              font-size: 20px;
+            }
+          }
+        }
+        .account{
+          & > a{
+            font-size: 2.5vw;
+          }
+        }
+        .google{
+          width: 225px;
+        }
+        .facebook{
+          width: 225px;
+        }
+      }
+    }
+  }
+  @media (max-width: 640px) {
+    .login-container{
+      .form-wrapper{
+        width: 90vw;
+        height: 90vh;
+        .form{
+          & > div{
+            .input{
+              font-size: 4.45vw;
+              height: 30px;
+            }
+          }
+          .submit{
+            width: 140px;
+            height: 40px;
+            &::after{
+              font-size: 15px;
+            }
+          }
+        }
+        .account{
+          & > a{
+            text-align: center;
+            display: block;
+            font-size: 4vw;
+          }
+        }
+        .google, .facebook{
+          width: 180px;
+        }
+      }
+    }
+  }
+}
+
+@mixin signUpResponsive {
+  @media (max-width: 1024px) {
+    .sign-up-container{
+      height: 100vh;
+      overflow: hidden;
+      .form-wrapper{
+        width: 90vw;
+        height: 90vh;
+        .actions{
+          .submit, .cancel{
+            width: 160px;
+            height: 50px;
+            &::after{
+              font-size: 12px;
+            }
+          }
+        }
+        .account{
+          & > a{
+            text-align: center;
+            display: block;
+            font-size: 2vw;
+          }
+        }
+        .google, .facebook{
+          width: 210px;
+          height: 50px;
+        }
+      }
+    }
+  }
+  @media (max-width: 640px) {
+    .sign-up-container{
+      height: 130vh;
+      overflow-y: scroll;
+      .form-wrapper{
+        width: 90vw;
+        height: 120vh;
+        .form-container{
+          .form{
+            .line-one, .line-two, .line-three{
+              position: relative;
+              flex-wrap: wrap;
+              height: 18vh;
+                .input-wrapper{
+                position: relative;
+                  width: 100%;
+                  .input{
+                    font-size: 4.45vw;
+                    height: 30px;
+                    position: relative;
+                  }  
+                }
+                .photo-user{
+                  justify-content: initial;
+                }
+              }
+          }
+        }
+        .actions{
+          .submit, .cancel{
+            width: 100px;
+            height: 30px;
+            &::after{
+              font-size: 12px;
+            }
+          }
+        }
+        .account{
+          & > a{
+            text-align: center;
+            display: block;
+            font-size: 3.5vw;
+          }
+        }
+        .google, .facebook{
+          width: 180px;
+        }
+      }
+    }
+  }
+}
+
+@mixin chatResponsive {
+  @media (max-width: 1024px) {
+
+  }
+  @media (max-width: 640px) {
+    .chat-container{
+      .chat-wrapper{
+        width: 90vw;
+        height: 80vh;
+        .users-area{
+          transition: .5s;
+          width: 0;
+          overflow: hidden;
+        }
+        & > span{
+          position: absolute;
+          top: 15px;
+          left: 25px;
+          display: block;
+          font-size: 7vw;
+        }
+        .messege-area-wrapper{
+          width: 100%;
+          overflow: hidden;
+          .actual-contact{
+            margin-left: 50px;
+          }
+          .messeges-container{
+            .messege-wrapper{
+              .messege{
+                width: 80%;
+                .text, .time{
+                  font-size: 3.5vw;
+                }
+              }
+            }
+          }
+          .input-text{
+            & > input{
+              width: 75%;
+            }
+            .send{
+              font-size: 4vw;
+            }
+          }
+        }
+        .no-selected-user{
+          width: 100%;
+          overflow: hidden;
+          & > h3{
+            position: absolute;
+            font-size: 4vw;
+            width: max-content;
+          }
+          transition: .5s;
+        }
+        .toggle-user{
+          width: 100%;
+          transition: .5s;
+        }
+        .toggle{
+          width: 0;
+          transition: .5s;
+        }
+      }
+    }
+  }
+}
+
+@mixin navResponsive {
+  @media (max-width: 1024px) {
+
+  }
+  @media (max-width: 640px) {
+    .nav-container{
+      position: fixed;
+      top: initial;
+      bottom: 0;
+      width: 100%;
+      height: 5vh;
+      & > ul{
+        display: flex;
+        & > li{
+          margin: 0;
+          width: auto;
+          margin: 0 10px 0 10px;
+          &:nth-child(3){
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin: 0 auto;
+            right: 20px;
+          }
+          &:hover{
+            &::before{
+              content: '';
+              width: 0;
+              height: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin profile {
+  @media (max-width: 640px) {
+    .profile-container{
+      .profile-wrapper{
+        width: 90vw;
+        height: 80vh;
+        & > h4{
+          font-size: 5vw;
+        }
+        & > table{
+          tr{
+            td{
+              font-size: 4vw;
+              & > img{
+                width: 20vw;
+              }
+              .edit-button{
+                width: 130px;
+                height: 40px;
+                &::after{
+                  font-size: 12px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
