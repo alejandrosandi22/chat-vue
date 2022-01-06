@@ -288,3 +288,32 @@
     }
   }
 }
+
+@mixin recover {
+  @media (max-width: 640px) {
+    .recover-container{
+      .recover-wrapper{
+        width: 80vw;
+        & > h2{
+          font-size: 4vw;
+          text-align: center;
+          margin: 25px;
+        }
+        .send-button{
+          width: 100px;
+          height: 30px;
+          &::after{
+            font-size: 12px;
+          }
+        }
+      }
+      .return{
+        width: 40px;
+        height: 30px;
+        &::after{
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
