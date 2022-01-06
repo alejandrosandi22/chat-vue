@@ -43,7 +43,7 @@
           <button @click="signUpWithEmail()" form="form" type="submit" value="signup" class="submit"></button>
       </div>
       <div class="account">
-        <a @click="emitRegistered()">Do you already have an account?</a>
+        <router-link to="/login">Do you already have an account?</router-link>
       </div>
       <span>or</span>
       <button @click="signUpWithGoogle" class="google"><i class="fab fa-google"></i>Sign Up with Google</button>
@@ -71,7 +71,6 @@ export default ({
       lastName: '',
       name: '',
       requestPassword: '',
-      registered: true,
       selectedUserPhoto: '',
       selectedPhotoName: '',
       photoName: 'selected item',
@@ -113,7 +112,7 @@ export default ({
             .then(() => {
               toastr['success'](`Welcome! ${fullName}`, 'Successful');
               setTimeout(() =>{
-                location.replace('/chat');
+                location.replace('/messeges');
               },1500);
             })
             .catch(error => {
@@ -133,10 +132,6 @@ export default ({
     signUpWithFacebook(){
       AppService.signInWithFacebook();
     },
-    emitRegistered(){
-      this.registered = true;
-      this.$emit('receiveConfirmation', this.registered);
-    },
     clearInput(){
       this.lastName = '';
       this.name = '';
@@ -144,6 +139,8 @@ export default ({
       this.password = '';
       this.requestPassword = '';
       this.requestEmail = '';
+
+      location.replace('/login');
     }
   }
 })

@@ -23,14 +23,14 @@ async function signInWithGoogle() {
     if(docSnap.exists()){
       toastr["success"](`Welcome ${user_data.user.displayName}`, "Successful");
       setTimeout(() => {
-        location.replace('/chat')
+        location.replace('/messeges')
       },1500)
     } else {
       await setDoc(doc(getFirestore(), 'users' , user_data.user.uid), userData)
         .then(() => {
           toastr["success"](`Welcome ${user_data.user.displayName}`, "Successful");
           setTimeout(() => {
-            location.replace('/chat')
+            location.replace('/messeges')
           },1500)
         })
         .catch((error) => {
@@ -58,14 +58,14 @@ async function signInWithFacebook() {
     if(docSnap.exists()){
       toastr["success"](`Welcome ${user_data.user.displayName}`, "Successful");
       setTimeout(() => {
-        location.replace('/chat')
+        location.replace('/messeges')
       },1500)
     } else {
       await setDoc(doc(getFirestore(), 'users' , user_data.user.uid), userData)
         .then(() => {
           toastr["success"](`Welcome ${user_data.user.displayName}`, "Successful");
           setTimeout(() => {
-            location.replace('/chat')
+            location.replace('/messeges')
           },1500)
         })
         .catch((error) => {
