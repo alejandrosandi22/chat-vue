@@ -3,6 +3,7 @@ import Login from '../components/LoginComponent/LoginComponent.vue';
 import SignUp from '../components/SignUpComponent/SignUpComponent.vue';
 import Messeges from '../views/Messeges/Messeges.vue';
 import Profile from '../views/Profile/Profile.vue';
+import Recover from '../views/Recover/Recover.vue'
 import Error from '../views/Error/404.vue';
 
 const routes = [
@@ -31,6 +32,11 @@ const routes = [
     path: '/profile',
     name: 'Profile',
     component: Profile
+  },
+  {
+    path: '/recover',
+    name: 'Recover',
+    component: Recover
   },
   {
     path: '/:catchMatch(.*)*',
