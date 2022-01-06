@@ -1,24 +1,36 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Auth from '../views/Auth/Auth.vue';
-import Chat from '../views/Chat/Chat.vue';
+import Login from '../components/LoginComponent/LoginComponent.vue';
+import SignUp from '../components/SignUpComponent/SignUpComponent.vue';
+import Messeges from '../views/Messeges/Messeges.vue';
+import Profile from '../views/Profile/Profile.vue';
 import Error from '../views/Error/404.vue';
 
 const routes = [
   {
     path: '/',
-    name: 'login',
-    redirect: '/auth',
-    component: Auth
-  },
-  {
-    path: '/auth',
     name: 'Auth',
-    component: Auth
+    redirect: '/login',
+    component: Login
   },
   {
-    path: '/chat',
-    name: 'Chat',
-    component: Chat
+    path: '/login',
+    name: 'Login',
+    component: Login
+  },
+  {
+    path: '/signup',
+    name: 'SignUp',
+    component: SignUp
+  },
+  {
+    path: '/messeges',
+    name: 'Messeges',
+    component: Messeges
+  },
+  {
+    path: '/profile',
+    name: 'Profile',
+    component: Profile
   },
   {
     path: '/:catchMatch(.*)*',

@@ -14,8 +14,8 @@ export default {
 
     onBeforeMount(() => {
       firebase.auth().onAuthStateChanged((user) => {
-        if (router.currentRoute._value.name === 'Chat' && !user) {
-          router.replace('/auth');
+        if ((router.currentRoute._value.name === 'Messeges' || router.currentRoute._value.name === 'Profile') && !user) {
+          router.replace('/login');
         }
       })
     })

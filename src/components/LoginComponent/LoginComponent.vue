@@ -15,8 +15,8 @@
           <button @click="loginWtihEmail()" type="submit" form="loginForm" value="Login" class="submit"></button>
         </form>
         <div class="account">
-          <a href="#">Forget your password?</a>
-          <a @click="emitRegistered()" >You do not have an account?</a>
+          <router-link to="/recover">Forget your password?</router-link>
+          <router-link to="/signup">You do not have an account?</router-link>
         </div>
         <span>or</span>
         <button @click="loginWithGoogle" class="google"><i class="fab fa-google"></i>Login with Google</button>
@@ -45,7 +45,7 @@ export default {
       firebase.auth().signInWithEmailAndPassword(this.email, this.password)
         .then(() =>{
           setTimeout(() =>{
-          location.replace('/chat');
+          location.replace('/messeges');
         },1500)
         })
         .catch(err => {
@@ -63,10 +63,6 @@ export default {
     },
     loginWithFacebook(){
       AppService.signInWithFacebook();
-    },
-    emitRegistered(){
-      this.registered = false;
-      this.$emit('receiveConfirmation', this.registered);
     }
   }
 }
