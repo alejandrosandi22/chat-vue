@@ -253,6 +253,15 @@
 @mixin profile {
   @media (max-width: 640px) {
     .profile-container{
+      .actions{
+        .save-button, .cancel-button{
+          width: 100px;
+            height: 30px;
+            &::after{
+              font-size: 15px;
+            }
+        }
+      }
       .profile-wrapper{
         width: 90vw;
         height: 80vh;
@@ -263,14 +272,13 @@
           tr{
             td{
               font-size: 4vw;
-              & > img{
-                width: 20vw;
-              }
-              .edit-button{
-                width: 130px;
-                height: 40px;
-                &::after{
-                  font-size: 12px;
+              label{
+                & > img{
+                  width: 20vw;
+                }
+                & > span{
+                  width: 20vw;
+                  height: 20vw;
                 }
               }
             }
