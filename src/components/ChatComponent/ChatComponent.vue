@@ -92,8 +92,8 @@ export default {
       this.user_id = user.id;
       
       setTimeout(() => {
-            this.$refs['scrollable'].scrollIntoView({behavior: 'smooth'});
-          },300)
+        this.$refs['scrollable'].scrollIntoView({behavior: 'smooth'});
+      },300)
     },
     setTime(date) {
       var hours = date.getHours();

@@ -2,79 +2,127 @@
 @use '../../shared/sass/responsive.scss';
 
 .profile-container{
+  width: 100vw;
+  height: 100vh;
+  @include mixin.center-flex();
+  overflow: hidden;
+  .blur-background{
+    z-index: -100;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100vw;
     height: 100vh;
-    @include mixin.center-flex();
-    overflow: hidden;
-    .blur-background{
-        z-index: -100;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: #132C33;
-        background: linear-gradient(300deg, #132C33, #126E82);
-        filter: blur(150px);
+    background: #132C33;
+    background: linear-gradient(300deg, #132C33, #126E82);
+    filter: blur(150px);
+  }
+  .actions{
+    position: absolute;
+    top: 2vw;
+    right: 2vw;
+    .save-button, .cancel-button{
+      @include mixin.auth-buttons();
+      &::after{
+        content: 'Save';
+      }
+      margin: 10px;
     }
-    .profile-wrapper{
+    .cancel-button{
+      &::after{
+        content: 'Cancel';
+      }
+    }
+  }
+  .profile-wrapper{
+    position: relative;
+    width: 50%;
+    height: 80%;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background: rgba(#8fcbd3, .5);
+    border-radius: 12px;
+    border: 1px solid rgba(#fff, 0.125);
+    box-shadow: 0 25px 45px #000000AA;
+    & > h4{
+      padding: 10px 20px;
+      width: 100%;
+      height: 10%;
+      @include mixin.center-flex();
+      justify-content: flex-start;
+      color: #fff;
+      font-size: 2.5vw;
+      font-weight: 300;
+    }
+    & > table{
+      @include mixin.center-absolute();
+      width: 90%;
+      height: 80%;
+      tr{
+      height: 25%;
+      width: 100%;
+      &:nth-child(1){
+        .first-column{
+          height: 100%;
+        }
+      }
+      .first-column{
+        width: 60%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+      }
+      td{
         position: relative;
         width: 50%;
-        height: 80%;
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        background: rgba(#8fcbd3, .5);
-        border-radius: 12px;
-        border: 1px solid rgba(#fff, 0.125);
-        box-shadow: 0 25px 45px #000000AA;
-        & > h4{
-            padding: 10px 20px;
-            width: 100%;
-            height: 10%;
-            @include mixin.center-flex();
-            justify-content: flex-start;
-            color: #fff;
-            font-size: 2.5vw;
-            font-weight: 300;
+        color: #fff;
+        font-size: 1.4vw;
+        & > input[type=file]{
+          opacity: 0;
+          width: 0;
+          height: 0;
+          margin: 0;
+          padding: 0;
         }
-        & > table{
+        & > label{
+          & > img{
             @include mixin.center-absolute();
-            width: 90%;
-            height: 80%;
-            tr{
-                height: 25%;
-                width: 100%;
-                &:nth-child(1){
-                    .first-column{
-                        height: 100%;
-                    }
-                }
-                .first-column{
-                    width: 60%;
-                    height: 100%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: end;
-                }
-                td{
-                    width: 50%;
-                    color: #fff;
-                    font-size: 1.4vw;
-                    & > img{
-                        width: 10vw;
-                        border-radius: 50%;
-                    }
-                    .edit-button{
-                        @include mixin.auth-buttons();
-                        &::after{
-                            content: 'Edit';
-                        }
-                    }
-                }
+            right: initial;
+            width: 10vw;
+            border-radius: 50%;
+          }
+          & > span{
+            @include mixin.center-absolute();
+            @include mixin.center-flex();
+            right: initial;
+            font-size: 2vw;
+            width: 10vw;
+            height: 10vw;
+            border-radius: 50%;
+            cursor: pointer;
+            opacity: 0;
+            &:hover{
+              opacity: 1;
+              background: #000000AA;
             }
+          }
         }
-       
+          .edit-button, .save-button{
+            background: #D8E3E7;
+            width: 50px;
+            height: 50px;
+            outline: none;
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+            font-size: 1.4vw;
+            font-weight: 500;
+          }
+        }
+      }
     }
+  }
 }
 
 @include responsive.profile();
