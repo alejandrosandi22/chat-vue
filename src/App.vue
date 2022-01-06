@@ -23,4 +23,6 @@ export default {
 }
 </script>
 
-<style lang="scss" src="./App.scss"></style>
+<style lang="scss">
+@import "toastr";
+</style>
