@@ -1,0 +1,88 @@
+@use '../../shared/sass/mixin.scss';
+@use '../../shared/sass/responsive.scss';
+
+.recover-container{
+  width: 100vw;
+  height: 100vh;
+  @include mixin.center-flex();
+  overflow: hidden;
+  .blur-background{
+    z-index: -100;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #132C33;
+    background: linear-gradient(300deg, #132C33, #126E82);
+    filter: blur(150px);
+    }
+    .recover-wrapper{
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 50vw;
+      height: 50vh;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: rgba(#8fcbd3, .5);
+      border-radius: 12px;
+      border: 1px solid rgba(#fff, 0.125);
+      box-shadow: 0 25px 45px #000000AA;
+      & > h2{
+        color: #fff;
+        font-size: 2vw;
+        display: block;
+        margin: 50px;
+      }
+      .input-wrapper{
+        @include mixin.input-effect();
+        width: 90%;
+        height: 4vh;
+        margin: 50px  0;
+        #email{
+          position: relative;
+          padding-left: 15px;
+          width: calc(100% - 15px);
+          height: 4vh;
+          outline: none;
+          border: none;
+          border-radius: 2px;
+          font-size: 1vw;
+        }
+      }
+      .emptyInput{
+        height: 4vh;
+        & ~ label{
+          transform: translateY(-155%);
+          color: #fff;
+        }
+      }
+      .send-button{
+        @include mixin.auth_buttons();
+        &::after{
+          content: 'Send';
+        }
+      }
+    }
+    .return{
+      @include mixin.auth_buttons();
+      position: absolute;
+      top: 40px;
+      left: 40px;
+      width: 60px;
+      height: 40px;
+      border-radius: 5px;
+      &::after{
+        content: '\f0d9';
+        font-family: "Font Awesome 5 Pro";
+        font-size: 1.5vw;
+      }
+      &::before{
+        width: 0;
+        height: 0;
+        opacity: 0;
+      }
+    }
+}
