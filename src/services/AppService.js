@@ -17,8 +17,10 @@ async function signInWithGoogle() {
     let userData = {
       fullName: user_data.user.displayName,
       email: user_data.user.email,
+      id: user_data.user.uid,
       photoURL: user_data.user.photoURL,
     }
+    console.log(userData)
 
     if(docSnap.exists()){
       toastr["success"](`Welcome ${user_data.user.displayName}`, "Successful");
@@ -52,6 +54,7 @@ async function signInWithFacebook() {
     let userData = {
       fullName: user_data.user.displayName,
       email: user_data.user.email,
+      id: user_data.user.uid,
       photoURL: user_data.user.photoURL,
     }
 
