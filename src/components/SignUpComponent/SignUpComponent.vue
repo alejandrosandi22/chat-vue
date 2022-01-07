@@ -57,6 +57,7 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/storage';
 import { getFirestore, doc, setDoc } from "firebase/firestore";
 import AppService from '../../services/AppService';
+import { useRouter } from 'vue-router';
 import toastr from 'toastr';
 
 export default ({
@@ -74,6 +75,7 @@ export default ({
       selectedUserPhoto: '',
       selectedPhotoName: '',
       photoName: 'selected item',
+      router: useRouter(),
     }
   },
   methods:{
@@ -112,7 +114,7 @@ export default ({
             .then(() => {
               toastr['success'](`Welcome! ${fullName}`, 'Successful');
               setTimeout(() =>{
-                location.replace('/messeges');
+                this.router.replace('/messeges');
               },1500);
             })
             .catch(error => {
@@ -140,7 +142,7 @@ export default ({
       this.requestPassword = '';
       this.requestEmail = '';
 
-      location.replace('/login');
+      this.router.replace('/login');
     }
   }
 })

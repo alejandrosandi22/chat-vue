@@ -27,7 +27,8 @@
 
 <script>
 import firebase from 'firebase/compat/app';
-import AppService from '../../services/AppService'
+import AppService from '../../services/AppService';
+import { useRouter } from 'vue-router';
 import toastr from 'toastr';
 
 export default {
@@ -38,6 +39,7 @@ export default {
       password: '',
       alert: false,
       registered: true,
+      router: useRouter(),
     }
   },
   methods:{
@@ -45,7 +47,7 @@ export default {
       firebase.auth().signInWithEmailAndPassword(this.email, this.password)
         .then(() =>{
           setTimeout(() =>{
-          location.replace('/messeges');
+          this.router.replace('/messeges');
         },1500)
         })
         .catch(err => {
