@@ -36,6 +36,7 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/storage';
 import { getDocs, getFirestore, collection, doc, setDoc } from "firebase/firestore";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { useRouter } from 'vue-router';
 import toastr from 'toastr';
 
 export default {
@@ -51,6 +52,7 @@ export default {
       edit: false,
       db: getFirestore(),
       defaultImageError: require('../../assets/user.png'),
+      router: useRouter(),
     }
   },
   methods:{
@@ -84,7 +86,7 @@ export default {
                   this.photo_url = this.current_user[0].photoURL;
                   this.edit = false;
                   setTimeout(() =>{
-                    location.reload();
+                    this.router.replace('/profile');
                   },500);
               })
               .catch(error => {

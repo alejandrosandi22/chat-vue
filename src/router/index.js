@@ -4,7 +4,6 @@ import SignUp from '../components/SignUpComponent/SignUpComponent.vue';
 import Messeges from '../views/Messeges/Messeges.vue';
 import Profile from '../views/Profile/Profile.vue';
 import Recover from '../views/Recover/Recover.vue'
-import Error from '../views/Error/404.vue';
 
 const routes = [
   {
@@ -41,7 +40,8 @@ const routes = [
   {
     path: '/:catchMatch(.*)*',
     name: '404',
-    component: Error
+    redirect: '/login',
+    component: Login
   }
 ]
 
