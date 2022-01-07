@@ -1,4 +1,5 @@
 import { getFirestore, setDoc, doc, getDoc } from "firebase/firestore";
+import { useRouter } from 'vue-router';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/storage';
 import 'firebase/auth'
@@ -6,6 +7,7 @@ import toastr from 'toastr';
 
 
 async function signInWithGoogle() {
+  const router = useRouter();
   const googleProvider = new firebase.auth.GoogleAuthProvider();
   
   await firebase.auth().signInWithPopup(googleProvider)
@@ -25,14 +27,14 @@ async function signInWithGoogle() {
     if(docSnap.exists()){
       toastr["success"](`Welcome ${user_data.user.displayName}`, "Successful");
       setTimeout(() => {
-        location.replace('/messeges')
+        router.replace('/messeges');
       },1500)
     } else {
       await setDoc(doc(getFirestore(), 'users' , user_data.user.uid), userData)
         .then(() => {
           toastr["success"](`Welcome ${user_data.user.displayName}`, "Successful");
           setTimeout(() => {
-            location.replace('/messeges')
+            router.replace('/messeges');
           },1500)
         })
         .catch((error) => {
@@ -43,6 +45,7 @@ async function signInWithGoogle() {
 }
 
 async function signInWithFacebook() {
+  const router = useRouter();
   const facebookProvider = new firebase.auth.FacebookAuthProvider();
   
   await firebase.auth().signInWithPopup(facebookProvider)
@@ -61,14 +64,14 @@ async function signInWithFacebook() {
     if(docSnap.exists()){
       toastr["success"](`Welcome ${user_data.user.displayName}`, "Successful");
       setTimeout(() => {
-        location.replace('/messeges')
+        router.replace('/messeges');
       },1500)
     } else {
       await setDoc(doc(getFirestore(), 'users' , user_data.user.uid), userData)
         .then(() => {
           toastr["success"](`Welcome ${user_data.user.displayName}`, "Successful");
           setTimeout(() => {
-            location.replace('/messeges')
+            router.replace('/messeges');
           },1500)
         })
         .catch((error) => {
