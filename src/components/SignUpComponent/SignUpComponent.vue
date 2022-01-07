@@ -96,6 +96,7 @@ export default ({
           let userData = {
             fullName: fullName,
             email: this.email,
+            id: user_data.user.uid,
             photoURL: '',
           }
           if (this.selectedUserPhoto != '') {

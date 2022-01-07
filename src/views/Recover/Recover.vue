@@ -14,26 +14,40 @@
 </template>
 
 <script>
+import { getDocs, getFirestore, collection } from "firebase/firestore";
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
+import toastr from 'toastr';
 
 export default {
   name: 'Recover',
   data(){
     return{
       email: '',
+      match: false,
     }
   },
   methods: {
-    recoverPassword(){
-    const auth = getAuth();
-    sendPasswordResetEmail(auth, this.email)
-      .then(() => {
-        console.log('se mandó')
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
+    async recoverPassword(){
+      const querySnapshot = await getDocs(collection(getFirestore(), "users"));
+      querySnapshot.forEach((doc) => {
+        if (doc.data().email === this.email) {
+          this.match = false;
+          const auth = getAuth();
+          sendPasswordResetEmail(auth, this.email)
+          .then(() => {
+            toastr['success']('', 'Succesfully');
+          })
+          .catch((error) => {
+            const errorMessage = error.message;
+            toastr['error'](errorMessage, "Error");
+          });
+        } else {
+          this.match = true;
+        }
       });
+      if (this.match) {
+        toastr['error']('The email does not exist', "Error");
+      }
     }
   }
 }

@@ -1,7 +1,7 @@
 # chat
 
-## Project setup
-[Use the web site here https://AleSandi22.github.io/chat](https://AleSandi22.github.io/auth)
+## URL
+[Use the web site here https://AleSandi22.github.io/chat](https://AleSandi22.github.io/Chat)
 
 ## Project setup
 ```
