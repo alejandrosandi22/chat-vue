@@ -5,6 +5,7 @@ import firebase from 'firebase/compat/app';
 import 'firebase/storage';
 import 'firebase/compat/auth';
 
+//Production
 const firebaseConfig = {
   apiKey: "AIzaSyA75OOJWRN3n3B-_3hEireV569whygQ17o",
   authDomain: "chat-production-75509.firebaseapp.com",
