@@ -2,7 +2,7 @@
   <div class="sign-up-container">
     <div class="blur-background"></div>
     <div class="form-wrapper">
-      <h2 @click="test">Sign Up</h2>
+      <h2>Sign Up</h2>
       <div class="form-container">
         <form class="form" id="form" @submit.prevent="signup">
           <div class="line-one">
@@ -22,7 +22,7 @@
             </div>
             <div class="photo-user input-wrapper">
               <input type="file" id="photo_user" class="input" @change="selectedPhoto($event)" accept="image/png, image/gif, image/jpeg">
-              <label class="label-input-file" for="photo_user">Choose a file</label>
+              <label class="label-input-file" for="photo_user">Choose a picture</label>
               <span>{{ photoName }}</span>
             </div>
           </div>
@@ -46,22 +46,24 @@
         <router-link to="/login">Do you already have an account?</router-link>
       </div>
       <span>or</span>
-      <button @click="signUpWithGoogle" class="google"><i class="fab fa-google"></i>Sign Up with Google</button>
-      <button @click="signUpWithFacebook" class="facebook"><i class="fab fa-facebook-f"></i>Sign Up with Facebook</button>
+      <SocialButtonsComponent></SocialButtonsComponent>
     </div> 
   </div>  
 </template>
 
 <script>
+import SocialButtonsComponent from '../shared/SocialButtonsComponent/SocialButtonsComponent.vue';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/storage';
 import { getFirestore, doc, setDoc } from "firebase/firestore";
-import AppService from '../../services/AppService';
 import { useRouter } from 'vue-router';
 import toastr from 'toastr';
 
 export default ({
   name: 'SignUpComponent',
+  components:{
+    SocialButtonsComponent,
+  },
   data(){
     return{
       db: getFirestore(),
@@ -79,9 +81,6 @@ export default ({
     }
   },
   methods:{
-    test(){
-      AppService.test();
-    },
     selectedPhoto(event){
       this.selectedUserPhoto = event.target.files[0];
       this.photoName = this.selectedUserPhoto.name
@@ -128,12 +127,6 @@ export default ({
       } else {
         toastr["error"]("The email or password do not match", "Error");
       }
-    },
-    signUpWithGoogle(){
-      AppService.signInWithGoogle();
-    },
-    signUpWithFacebook(){
-      AppService.signInWithFacebook();
     },
     clearInput(){
       this.lastName = '';

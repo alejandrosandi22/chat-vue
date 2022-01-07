@@ -1,0 +1,45 @@
+.social-buttons-container{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  .google{
+    position: relative;
+    height: 5vh;
+    width: 14vw;
+    padding-left: 15px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    background: #D04333;
+    transition: .1s;
+    &:hover{
+      background: #912b20;
+      transition: .1s;
+    }
+    & > i{
+      position: absolute;
+      left: 15px;
+    } 
+  }
+  .facebook{
+    position: relative;
+    height: 5vh;
+    width: 14vw;
+    padding-left: 15px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    background: #3C66C5;
+    transition: .1s;
+    &:hover{
+      background: #294b9c;
+      transition: .1s;
+    }
+    & > i{
+      position: absolute;
+      left: 15px;
+    } 
+  }
+}

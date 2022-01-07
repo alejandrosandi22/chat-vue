@@ -19,20 +19,22 @@
           <router-link to="/signup">You do not have an account?</router-link>
         </div>
         <span>or</span>
-        <button @click="loginWithGoogle" class="google"><i class="fab fa-google"></i>Login with Google</button>
-        <button @click="loginWithFacebook" class="facebook"><i class="fab fa-facebook-f"></i>Login with Fcaebook</button>
+        <SocialButtonsComponent></SocialButtonsComponent>
       </div> 
     </div>    
 </template>
 
 <script>
+import SocialButtonsComponent from '../shared/SocialButtonsComponent/SocialButtonsComponent.vue';
 import firebase from 'firebase/compat/app';
-import AppService from '../../services/AppService';
 import { useRouter } from 'vue-router';
 import toastr from 'toastr';
 
 export default {
   name: 'LoginComponent',
+  components:{
+    SocialButtonsComponent,
+  },
   data(){
     return{
       email: '',
@@ -53,19 +55,11 @@ export default {
         .catch(err => {
           if (err.code == 'auth/invalid-email' || err.code == 'auth/user-not-found'){
             toastr['error']("Invalid email or does not exist","Error");
-            toastr.options = AppService.toastrOptions;
           } else {
             toastr['error']('The password is invalid or the user does not have a password',"Error");
-            toastr.options = AppService.toastrOptions;
           }
         })
     },
-    loginWithGoogle(){
-      AppService.signInWithGoogle();
-    },
-    loginWithFacebook(){
-      AppService.signInWithFacebook();
-    }
   }
 }
 </script>

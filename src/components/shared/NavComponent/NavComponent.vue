@@ -3,20 +3,24 @@
     <ul>
       <li data-content="profile"><router-link to="/profile"><i class="fas fa-user-circle"></i></router-link></li>
       <li data-content="chat"><router-link to="/messeges"><i class="far fa-comment-dots"></i></router-link></li>
-      <li data-content="logout" @click="Logout()"><i class="fal fa-sign-out-alt"></i></li>
+      <li data-content="logout" @click="logout()"><i class="fal fa-sign-out-alt"></i></li>
     </ul>
   </div>
 </template>
 
 <script>
-import AppService from '../../../services/AppService';
+import firebase from 'firebase/compat/app';
+import 'firebase/auth'
+import toastr from 'toastr';
 
 export default {
   name: 'NavComponent',
   methods:{
-    Logout(){
-        AppService.logout();
-    },
+    logout(){
+      firebase.auth().signOut().then().catch(error => {
+        toastr['error'](error,"Error");
+      })
+    }
   }
 }
 </script>

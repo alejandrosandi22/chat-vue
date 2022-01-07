@@ -1,3 +1,4 @@
+
 @use '../../shared/sass/mixin.scss';
 @use '../../shared/sass/responsive.scss';
 @use '../../shared//sass/animations.scss';
@@ -93,12 +94,6 @@
               color: #fff;
           }
         }
-      }
-      .google{
-        @include mixin.google_button();
-      }
-      .facebook{
-        @include mixin.facebook_button();
       }
     }
 }
