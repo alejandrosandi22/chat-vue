@@ -114,16 +114,20 @@ export default {
         time: this.setTime(new Date),
         createdAt: Date.now(),
       }
-      
-      this.usersMesseges = [];
-      await setDoc(doc(collection(this.db, 'messeges')),this.dataMessege)
-        .then(() => {
-          this.messegeToSend = '';
-          this.$refs['scrollable'].scrollIntoView({behavior: 'smooth'});
+
+      if (this.messegeToSend != '') {
+        this.usersMesseges = [];
+        await setDoc(doc(collection(this.db, 'messeges')),this.dataMessege)
+          .then(() => {
+            this.messegeToSend = '';
+            this.$refs['scrollable'].scrollIntoView({behavior: 'smooth'});
+          })
+          .catch((error) => {
+            toastr['error'](error, 'Error');
         })
-        .catch((error) => {
-          toastr['error'](error, 'Error');
-      })
+      } else {
+        toastr['warning']('You must enter a message', 'Empty text');
+      } 
     },
     async getDocs(){
       const usersCollection = collection(this.db, 'users');
