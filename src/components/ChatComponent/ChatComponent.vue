@@ -29,7 +29,7 @@
                     v-if="(userMessege.transmitter === currentUser && userMessege.receive === user_id) || (userMessege.transmitter === user_id && userMessege.receive === currentUser)"
                     :class="(userMessege.transmitter === currentUser ? 'current-user' : 'messege')">
                     <p class="text">{{userMessege.messege }}</p>
-                    <h4 class="time">{{ userMessege.time }}</h4>
+                    <h4 class="time"><span>{{ userMessege.date }}</span>{{ userMessege.time }}</h4>
                   </div>
                 </div>
                 <div id="scrble" ref="scrollable"></div>
@@ -107,10 +107,17 @@ export default {
     },
     async sendMessege(){
 
+      const date = new Date();
+      let day = date.getDate()
+      let month = date.getMonth() + 1;
+      let year = date.getFullYear()
+
+
       this.dataMessege = {
         receive: this.user_id,
         transmitter: this.currentUser,
         messege: this.messegeToSend,
+        date: `${day}/${month}/${year}`,
         time: this.setTime(new Date),
         createdAt: Date.now(),
       }
