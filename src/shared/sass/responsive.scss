@@ -181,6 +181,9 @@
                 width: 80%;
                 .text, .time{
                   font-size: 3.5vw;
+                  & >  span {
+                    font-size: 3vw;
+                  }
                 }
               }
             }

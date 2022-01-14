@@ -138,6 +138,11 @@
                             padding: 0px 6px 6px 0;
                             text-align: end;
                             font-size: 1.1vw;
+                            & > span{
+                                font-weight: 300;
+                                margin-right: 0.5vw;
+                                font-size: 1.0vw;
+                            }
                         }
                     }
                     .current-user{
