@@ -115,7 +115,7 @@ export default ({
               toastr['success'](`Welcome! ${fullName}`, 'Successful');
               setTimeout(() =>{
                 this.router.replace('/messeges');
-              },1500);
+              },1000);
             })
             .catch(error => {
               toastr["error"](error, "Error");

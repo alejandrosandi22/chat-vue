@@ -1,4 +1,5 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHashHistory } from 'vue-router';
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Login from '../components/LoginComponent/LoginComponent.vue';
 import SignUp from '../components/SignUpComponent/SignUpComponent.vue';
 import Messeges from '../views/Messeges/Messeges.vue';
@@ -8,9 +9,9 @@ import Recover from '../views/Recover/Recover.vue'
 const routes = [
   {
     path: '/',
-    name: 'Auth',
-    redirect: '/login',
-    component: Login
+    name: 'Default',
+    redirect: '/messeges',
+    component: Messeges
   },
   {
     path: '/login',
@@ -25,12 +26,14 @@ const routes = [
   {
     path: '/messeges',
     name: 'Messeges',
-    component: Messeges
+    component: Messeges,
+    meta: { requiresAuth: true }
   },
   {
     path: '/profile',
     name: 'Profile',
-    component: Profile
+    component: Profile,
+    meta: { requiresAuth: true }
   },
   {
     path: '/recover',
@@ -46,8 +49,26 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
-  routes
+  history: createWebHashHistory(),
+  routes,
+})
+
+router.beforeEach((to, from, next) => {
+
+  let logged = false;
+
+  const auth = getAuth();
+  onAuthStateChanged(auth, (user) => {
+    user ? logged = true : logged = false;
+
+    if (to.matched.some(route => route.meta.requiresAuth) && !logged) {
+      next('/login')
+    } else {
+      next();
+    }
+
+  });
+
 })
 
 export default router

@@ -50,7 +50,7 @@ export default {
         .then(() =>{
           setTimeout(() =>{
           this.router.replace('/messeges');
-        },1500)
+        },1000)
         })
         .catch(err => {
           if (err.code == 'auth/invalid-email' || err.code == 'auth/user-not-found'){

@@ -41,14 +41,14 @@ export default {
           toastr["success"](`Welcome ${user_data.user.displayName}`, "Successful");
           setTimeout(() => {
             this.router.replace('/messeges');
-          },1500)
+          },1000)
         } else {
           await setDoc(doc(getFirestore(), 'users' , user_data.user.uid), userData)
             .then(() => {
               toastr["success"](`Welcome ${user_data.user.displayName}`, "Successful");
               setTimeout(() => {
                 this.router.replace('/messeges');
-              },1500)
+              },1000)
             })
             .catch((error) => {
               toastr['error'](error, 'Error');
@@ -77,14 +77,14 @@ export default {
           toastr["success"](`Welcome ${user_data.user.displayName}`, "Successful");
           setTimeout(() => {
             this.router.replace('/messeges');
-          },1500)
+          },1000)
         } else {
           await setDoc(doc(getFirestore(), 'users' , user_data.user.uid), userData)
             .then(() => {
               toastr["success"](`Welcome ${user_data.user.displayName}`, "Successful");
               setTimeout(() => {
                 this.router.replace('/messeges');
-              },1500)
+              },1000)
             })
             .catch((error) => {
               toastr['error'](error, 'Error');

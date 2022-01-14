@@ -17,7 +17,7 @@ export default {
   name: 'NavComponent',
   methods:{
     logout(){
-      firebase.auth().signOut().then().catch(error => {
+      firebase.auth().signOut().then(location.reload()).catch(error => {
         toastr['error'](error,"Error");
       })
     }
