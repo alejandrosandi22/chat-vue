@@ -1,57 +1,20 @@
-@mixin loginResponsive {
+@mixin login {
   @media (max-width: 1024px) {
     .login-container{
       .form-wrapper{
-        width: 90vw;
-        height: 90vh;
-        .form{
-          & > div{
-            .input{
-              font-size: 3vw;
-              height: 45px;
-            }
-          }
-          .submit{
-            width: 170px;
-            height: 60px;
-            &::after{
-              font-size: 20px;
-            }
-          }
-        }
-        .account{
-          & > a{
-            font-size: 2.5vw;
-          }
-        }
+        width: 70vw;
       }
     }
   }
-  @media (max-width: 640px) {
+  @media (max-width: 720px) {
     .login-container{
       .form-wrapper{
         width: 90vw;
         height: 90vh;
-        .form{
-          & > div{
-            .input{
-              font-size: 4.45vw;
-              height: 30px;
-            }
-          }
-          .submit{
-            width: 140px;
-            height: 40px;
-            &::after{
-              font-size: 15px;
-            }
-          }
-        }
         .account{
           & > a{
             text-align: center;
             display: block;
-            font-size: 4vw;
           }
         }
       }
@@ -59,7 +22,7 @@
   }
 }
 
-@mixin signUpResponsive {
+@mixin sign-up {
   @media (max-width: 1024px) {
     .sign-up-container{
       height: 100vh;
@@ -67,20 +30,10 @@
       .form-wrapper{
         width: 90vw;
         height: 90vh;
-        .actions{
-          .submit, .cancel{
-            width: 160px;
-            height: 50px;
-            &::after{
-              font-size: 12px;
-            }
-          }
-        }
         .account{
           & > a{
             text-align: center;
             display: block;
-            font-size: 2vw;
           }
         }
       }
@@ -91,20 +44,17 @@
       height: 130vh;
       overflow-y: scroll;
       .form-wrapper{
-        width: 90vw;
         height: 120vh;
         .form-container{
           .form{
             .line-one, .line-two, .line-three{
               position: relative;
               flex-wrap: wrap;
-              height: 18vh;
+              height: 11rem;
               .input-wrapper{
               position: relative;
                 width: 100%;
                 .input{
-                  font-size: 4.45vw;
-                  height: 30px;
                   position: relative;
                 }  
               }
@@ -112,22 +62,6 @@
                 justify-content: initial;
               }
             }
-          }
-        }
-        .actions{
-          .submit, .cancel{
-            width: 100px;
-            height: 30px;
-            &::after{
-              font-size: 12px;
-            }
-          }
-        }
-        .account{
-          & > a{
-            text-align: center;
-            display: block;
-            font-size: 3.5vw;
           }
         }
       }
@@ -203,7 +137,7 @@
   }
 }
 
-@mixin navResponsive {
+@mixin nav {
   @media (max-width: 720px) {
     .nav-container{
       position: fixed;
@@ -236,7 +170,7 @@
 }
 
 @mixin profile {
-  @media (max-width: 640px) {
+  @media (max-width: 720px) {
     .profile-container{
       .actions{
         .save-button, .cancel-button{
@@ -275,40 +209,10 @@
 }
 
 @mixin recover {
-  @media (max-width: 640px) {
+  @media (max-width: 1024px){
     .recover-container{
       .recover-wrapper{
         width: 80vw;
-        & > h2{
-          font-size: 4vw;
-          text-align: center;
-          margin: 25px;
-        }
-        .send-button{
-          width: 100px;
-          height: 30px;
-          &::after{
-            font-size: 12px;
-          }
-        }
-      }
-      .return{
-        width: 40px;
-        height: 30px;
-        &::after{
-          font-size: 12px;
-        }
-      }
-    }
-  }
-}
-
-@mixin sign-in-button {
-  @media (max-width: 720px) {
-    .social-buttons-container{
-      .facebook, .google{
-        height: 5vh;
-        width: 26vh;
       }
     }
   }
