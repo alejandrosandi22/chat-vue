@@ -8,11 +8,11 @@
   left: 0;
   width: 4%;
   height: 100vh;
-  background: rgba(#8fcbd3, .5);
-  backdrop-filter: blur(150px);
   border-right: 1px solid rgba(#fff, 0.125);
   border-bottom-right-radius: .2rem;
   border-top-right-radius: .2rem;
+  background: rgba(#8fcbd3, .5);
+  backdrop-filter: blur(150px);
   box-shadow: 0 10px 10px #000000AA;
   & > ul{
     & > li{
@@ -35,7 +35,7 @@
     }
       &:nth-child(3){
         position: absolute;
-        bottom: 20px;
+        bottom: 2rem;
       }
       &:hover{
         color: #dcdcdc;

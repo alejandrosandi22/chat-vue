@@ -3,7 +3,7 @@
     <ul>
       <li><router-link to="/profile" title="profile"><i class="fas fa-user-circle"></i></router-link></li>
       <li><router-link to="/messeges" title="chat"><i class="far fa-comment-dots"></i></router-link></li>
-      <li @click="logout()" title="logout"><i class="fal fa-sign-out-alt"></i></li>
+      <li><i @click="logout()" title="logout" class="fal fa-sign-out-alt"></i></li>
     </ul>
   </div>
 </template>
