@@ -6,6 +6,16 @@
     font-family: 'Roboto', sans-serif;
 }
 
+:root{
+  font-size: 1vw;
+}
+
+@media (max-width: 1024px) {
+  :root{
+    font-size: 1.5vh;
+  }
+}
+
 body{
     background: linear-gradient(300deg, rgba(19, 44, 51, 0.6), rgba(18, 110, 130, 0.6));
 }

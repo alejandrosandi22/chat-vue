@@ -8,41 +8,32 @@
   overflow: hidden;
   .blur-background{
     @include mixin.blur-bg();
-    filter: blur(150px);
     }
     .recover-wrapper{
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       width: 50vw;
       height: 50vh;
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      background: rgba(#8fcbd3, .5);
-      border-radius: 12px;
-      border: 1px solid rgba(#fff, 0.125);
-      box-shadow: 0 25px 45px #000000AA;
+      @include mixin.form-style();
       & > h2{
         color: #fff;
-        font-size: 2vw;
+        font-size: 1.6rem;
         display: block;
-        margin: 50px;
+        margin: 3.5rem;
+        text-align: center;
       }
       .input-wrapper{
         @include mixin.input-effect();
         width: 90%;
-        height: 4vh;
-        margin: 50px  0;
+        height: 4rem;
+        margin: 3rem  0;
         #email{
           position: relative;
-          padding-left: 15px;
-          width: calc(100% - 15px);
+          padding-left: 1rem;
+          width: calc(100% - 1rem);
           height: 4vh;
           outline: none;
           border: none;
-          border-radius: 2px;
-          font-size: 1vw;
+          border-radius: .2rem;
+          font-size: 1rem;
         }
       }
       .emptyInput{
@@ -62,15 +53,15 @@
     .return{
       @include mixin.auth_buttons();
       position: absolute;
-      top: 40px;
-      left: 40px;
-      width: 60px;
-      height: 40px;
-      border-radius: 5px;
+      top: 3rem;
+      left: 3rem;
+      width: 4rem;
+      height: 2rem;
+      border-radius: .5rem;
       &::after{
         content: '\f0d9';
         font-family: "Font Awesome 5 Pro";
-        font-size: 1.5vw;
+        font-size: 1.5rem;
       }
       &::before{
         width: 0;

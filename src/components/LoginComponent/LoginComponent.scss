@@ -4,8 +4,10 @@
 @use '../../shared//sass/animations.scss';
 
 
+
+
 .login-container{
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   @include mixin.center-flex();
   overflow: hidden;
@@ -13,21 +15,12 @@
     @include mixin.blur-bg();
   }
   .form-wrapper{
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 37%;
-      height: 80%;
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      background: rgba(#8fcbd3, .5);
-      border-radius: 12px;
-      border: 1px solid rgba(#fff, 0.125);
-      box-shadow: 0 25px 45px #000000AA;
+      width: 37vw;
+      height: 80vh;
+      @include mixin.form-style();
       & > h2{
         height: 23%;
-        font-size: 3em;
+        font-size: 3rem;
         color: #fff;
         text-transform: uppercase;
         text-align: center;
@@ -48,16 +41,16 @@
           height: 9vh;
         }
         .input{
-          padding-left: 15px;
-          width: calc(100% - 15px);
+          padding-left: 1.5rem;
+          width: calc(100% - 1.5rem);
           height: 4vh;
           outline: none;
           border: none;
-          border-radius: 2px;
-          font-size: 1vw;
+          border-radius: .2rem;
+          font-size: 1rem;
         }
         & > label{
-          font-size: 1em;
+          font-size: 1rem;
         }
         .emptyInput{
           height: 4vh;
@@ -72,18 +65,18 @@
       }
       & > span {
         color: #fff;
-        margin: 0 0 20px 0;
+        font-size: 1rem;
       }
       .account{
-        margin: 20px 0;
+        margin: 1rem;
         & > a{
           cursor: pointer;
           text-decoration: underline;
           color: rgba(#fff, .5);
-          margin: 10px;
-          font-size: .9em;
+          margin: 1rem;
+          font-size: 1rem;
           &:hover{
-              color: #fff;
+            color: #fff;
           }
         }
       }
@@ -91,4 +84,4 @@
 }
 
 @include animations.rotate();
-@include responsive.loginResponsive();
+@include responsive.login();

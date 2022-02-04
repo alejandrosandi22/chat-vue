@@ -1,10 +1,8 @@
 @use '../../../shared/sass/mixin.scss';
-@use '../../../shared/sass/responsive.scss';
 
 .social-buttons-container{
   display: flex;
   flex-direction: column;
-  gap: 20px;
   .google{
     @include mixin.sign-in-button();
     background: #D04333;
@@ -20,5 +18,3 @@
     }
   }
 }
-
-@include responsive.sign-in-button();

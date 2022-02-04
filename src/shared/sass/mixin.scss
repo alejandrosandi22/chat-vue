@@ -13,10 +13,23 @@
   filter: blur(150px);
 }
 
+@mixin form-style {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  backdrop-filter: blur(2rem);
+  -webkit-backdrop-filter: blur(20em);
+  background: rgba(#8fcbd3, .5);
+  border-radius: 12px;
+  border: 1px solid rgba(#fff, 0.125);
+  box-shadow: 0 25px 45px #000000AA;
+}
+
 @mixin input-effect {
   display: flex;
   align-items: center;
-  height: 9vh;
+  height: 5rem;
   & > input{
     position: absolute;
     &:focus ~ label{
@@ -28,21 +41,11 @@
   }
   label{
     position: absolute;
-    color: rgb(83, 83, 83);
+    color: #535353;
     cursor: text;
     transition: .5s;
-    margin-left: 5px;
-    font-size: 1vw;
-  }
-  @media(max-width: 1024px){
-    label{
-      font-size: 3vw;
-    }
-  }
-  @media(max-width: 640px){
-    label{
-      font-size: 4.45vw;
-    }
+    margin-left: 1rem;
+    font-size: 1rem;
   }
 }
 
@@ -64,11 +67,11 @@
 @mixin auth-buttons {
   position: relative;
   align-self: center;
-  width: 8vw;
-  height: 5vh;
+  width: 11rem;
+  height: 3.5rem;
   background: #D8E3E7;
   border: none;
-  border-radius: 2px;
+  border-radius: .2rem;
   outline: none;
   cursor: pointer;
   overflow: hidden;
@@ -99,9 +102,9 @@
     left: 0;
     right: 0;
     margin: auto;
-    border-radius: 2px;
+    border-radius: .5rem;
     background: #D8E3E7;
-    font-size: 1vw;
+    font-size: 1rem;
     transition: .5s;
   }
   &::before{
@@ -113,7 +116,7 @@
     margin: auto;
     width: 150%;
     height: 50%;
-    border-radius: 2px;
+    border-radius: .2rem;
     animation: rotate 2s linear infinite;
     transition: all .5s;
   }
@@ -121,9 +124,11 @@
 
 @mixin sign-in-button {
   position: relative;
-  height: 2.5vw;
-  width: 14vw;
-  padding-left: 15px;
+  height: 2.8rem;
+  width: 15rem;
+  padding-left: 1rem;
+  margin: 1rem;
+  font-size: 1rem;
   outline: none;
   border: none;
   cursor: pointer;
@@ -134,7 +139,7 @@
   }
   & > i{
     position: absolute;
-    left: 15px;
+    left: 1.5rem;
   } 
 }
 
