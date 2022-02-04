@@ -70,7 +70,7 @@
 }
 
 @mixin chat {
-  @media (max-width: 720px) {
+  @media (max-width: 1024px) {
     .chat-container{
       .chat-wrapper{
         .users-area{
@@ -80,38 +80,16 @@
         }
         & > span{
           position: absolute;
-          top: 15px;
-          left: 25px;
+          top: 1rem;
+          left: 2rem;
           display: block;
-          font-size: 7vw;
+          font-size: 2rem;
         }
         .messege-area-wrapper{
           width: 100%;
           overflow: hidden;
           .actual-contact{
-            margin-left: 50px;
-          }
-          .messeges-container{
-            .messege-wrapper{
-              .messege{
-                width: 80%;
-                .text, .time{
-                  font-size: 3.5vw;
-                  & >  span {
-                    font-size: 3vw;
-                  }
-                }
-              }
-            }
-          }
-          .input-text{
-            & > input{
-              width: 75%;
-              font-size: 4vw;
-            }
-            .send{
-              font-size: 4vw;
-            }
+            padding-left: 5rem;
           }
         }
         .no-selected-user{
@@ -119,7 +97,6 @@
           overflow: hidden;
           & > h3{
             position: absolute;
-            font-size: 4vw;
             width: max-content;
           }
           transition: .5s;
