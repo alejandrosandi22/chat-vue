@@ -1,49 +1,49 @@
 <template>
-    <div class="chat-container">
-        <span class="blur-background"></span>
-        <div class="chat-wrapper">
-            <div class="users-area" :class="{'toggle-user': barsToggle === true}">
-                <h2>Users</h2>
-                <div class="all-users-wrapper">
-                  <div class="user-wrapper" v-for="user in users" :key="user.id" @click="selectUserToChat(user)">
-                    <img draggable="false" class="user-photo" :src="user.photoURL" @error="imgError" alt="profile photo">
-                    <div class="user">
-                      <h3 class="user-name">{{ user.fullName }}</h3>
-                      <p class="user-data">{{ user.email }}</p>
-                    </div>
-                  </div>
-                </div>
+  <div class="chat-container">
+    <span class="blur-background"></span>
+    <div class="chat-wrapper">
+      <div class="users-area" :class="{'toggle-user': barsToggle === true}">
+        <h2>Users</h2>
+        <div class="all-users-wrapper">
+          <div class="user-wrapper" v-for="user in users" :key="user.id" @click="selectUserToChat(user)">
+            <img draggable="false" class="user-photo" :src="user.photoURL" @error="imgError" alt="profile photo">
+            <div class="user">
+              <h3 class="user-name">{{ user.fullName }}</h3>
+              <p class="user-data">{{ user.email }}</p>
             </div>
-            <span><i class="fal fa-bars" @click="toggleUsers"></i></span>
-            <div v-if="selectedUser" class="messege-area-wrapper" :class="{'toggle': barsToggle === true}">
-              <div class="actual-contact">
-                <img :src="photo_url" @error="imgError" alt="profile">
-                <div>
-                  <h2>{{ user_name }}</h2>
-                  <h3>{{ user_email }}</h3>
-                </div>
-              </div>
-                <div  v-if="currentUser" class="messeges-container" >
-                <div class="messege-wrapper" v-for="userMessege in usersMesseges" :key="userMessege.key" >
-                  <div class="messege"
-                    v-if="(userMessege.transmitter === currentUser && userMessege.receive === user_id) || (userMessege.transmitter === user_id && userMessege.receive === currentUser)"
-                    :class="(userMessege.transmitter === currentUser ? 'current-user' : 'messege')">
-                    <p class="text">{{userMessege.messege }}</p>
-                    <h4 class="time"><span>{{ userMessege.date }}</span>{{ userMessege.time }}</h4>
-                  </div>
-                </div>
-                <div id="scrble" ref="scrollable"></div>
-              </div>
-              <div class="input-text">
-                  <input v-on:keyup.enter="sendMessege()" v-model="messegeToSend" type="text" placeholder="Messege">
-                  <span  @click="sendMessege" class="send"><i class="far fa-paper-plane"></i></span>
-              </div>
-            </div>
-            <div v-else class="no-selected-user" :class="{'toggle': barsToggle === true}">
-              <h3>Select one user to chat</h3>
-            </div>
+          </div>
         </div>
+      </div>
+      <span><i class="fal fa-bars" @click="toggleUsers"></i></span>
+      <div v-if="selectedUser" class="messege-area-wrapper" :class="{'toggle': barsToggle === true}">
+        <div class="actual-contact">
+          <img :src="photo_url" @error="imgError" alt="profile">
+          <div>
+            <h2>{{ user_name }}</h2>
+            <h3>{{ user_email }}</h3>
+          </div>
+        </div>
+          <div  v-if="currentUser" class="messeges-container" >
+          <div class="messege-wrapper" v-for="userMessege in usersMesseges" :key="userMessege.key" >
+            <div class="messege"
+              v-if="(userMessege.transmitter === currentUser && userMessege.receive === user_id) || (userMessege.transmitter === user_id && userMessege.receive === currentUser)"
+              :class="(userMessege.transmitter === currentUser ? 'current-user' : 'messege')">
+              <p class="text">{{userMessege.messege }}</p>
+              <h4 class="time"><span>{{ userMessege.date }}</span>{{ userMessege.time }}</h4>
+            </div>
+          </div>
+          <div id="scrble" ref="scrollable"></div>
+        </div>
+        <div class="input-text">
+            <input v-on:keyup.enter="sendMessege()" v-model="messegeToSend" type="text" placeholder="Messege">
+            <span  @click="sendMessege" class="send"><i class="far fa-paper-plane"></i></span>
+        </div>
+      </div>
+      <div v-else class="no-selected-user" :class="{'toggle': barsToggle === true}">
+        <h3>Select one user to chat</h3>
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
@@ -84,8 +84,8 @@ export default {
       });
     },
     selectUserToChat(user){
-      this.barsToggle = false;
       this.selectedUser = true;
+      this.barsToggle = false;
       this.user_name = user.fullName;
       this.user_email = user.email;
       this.photo_url = user.photoURL;

@@ -7,15 +7,7 @@
   @include mixin.center-flex();
   overflow: hidden;
   .blur-background{
-    z-index: -100;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: #132C33;
-    background: linear-gradient(300deg, #132C33, #126E82);
-    filter: blur(150px);
+    @include mixin.blur-bg();
   }
   .actions{
     position: absolute;

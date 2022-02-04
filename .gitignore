@@ -4,6 +4,9 @@ enlace
 deploy.sh
 /dist
 
+# Environment
+environment.js
+
 # local env files
 .env.local
 .env.*.local
