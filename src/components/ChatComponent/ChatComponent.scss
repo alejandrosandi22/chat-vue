@@ -10,17 +10,11 @@
     @include mixin.blur-bg();
   }
   .chat-wrapper{
-    position: relative;
-    display: flex;
-    align-items: center;
     width: 80%;
     height: 80%;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    background: rgba(#8fcbd3, .5);
-    border-radius: 12px;
-    border: 1px solid rgba(#fff, 0.125);
-    box-shadow: 0 25px 45px #000000AA;
+    @include mixin.form-style();
+    flex-direction: initial;
+    overflow: hidden;
     .users-area{
       position: relative;
       width: 30%;
@@ -29,7 +23,7 @@
         & > h2{
           height: 10%;
           color: #fff;
-          font-size: 1.3em;
+          font-size: 1.3rem;
           font-weight: 300;
           @include mixin.center-flex();
           border-bottom: 2px solid rgba(#fff, 0.125);
@@ -42,7 +36,7 @@
           .user-wrapper{
             border-bottom: 2px solid rgba(#fff, 0.125);
             width: 100%;
-            height: 4em;
+            height: 4rem;
             @include mixin.center-flex();
             justify-content: initial;
             cursor: pointer;
@@ -57,14 +51,14 @@
             }
               .user{
                 .user-name{
-                  font-size: 1em;
+                  font-size: 1rem;
                   font-weight: 300;
                   word-break:break-all;
                   color: #fff;
                   width: max-content;
                 }
                 .user-data{
-                  font-size: .8em;
+                  font-size: .8rem;
                   font-weight: 300;
                   color: #fff;
                   word-break:break-all;
@@ -91,18 +85,18 @@
             border-bottom: 2px solid rgba(#fff, 0.125);
             & > img{
               height: 70%;
-              margin: 0 15px;
+              margin: 0 1rem;
               border-radius: 50%;
             }
             & > div{
               & > h2{
                 color: #fff;
-                font-size: 1.3em;
+                font-size: 1.3rem;
                 font-weight: 300;
               }
               & > h3{
                 color: rgba(#fff, 0.5);
-                font-size: .9em;
+                font-size: .9rem;
                 font-weight: 300;
               }
             }
@@ -120,20 +114,20 @@
                 position: relative;
                 background: #D8E3E7;
                 width: 40%;
-                border-radius: 10px;
-                margin: 10px;
+                border-radius: .5rem;
+                margin: .6rem;
                 .text{
-                  padding: 6px;
-                  font-size: 1.1vw;
+                  padding: .6rem;
+                  font-size: 1.1rem;
                 }
                 .time{
-                  padding: 0px 6px 6px 0;
+                  padding: 0px .6rem .6rem 0;
                   text-align: end;
-                  font-size: 1.1vw;
+                  font-size: 1.1rem;
                   & > span{
                     font-weight: 300;
-                    margin-right: 0.5vw;
-                    font-size: 1.0vw;
+                    margin-right: 0.5rem;
+                    font-size: 1rem;
                   }
                 }
               }
@@ -145,26 +139,28 @@
             }
           }
           .input-text{
+            @include mixin.center-flex();
+            justify-content: space-around;
             width: 100%;
+            height: 10%;
             bottom: 0;
             border-top: 2px solid rgba(#fff, 0.125);
             & > input{
-                padding: 0 5px;
-                width: 90%;
-                height: 4vh;
+                padding: 0 .5rem;
+                width: 80%;
+                height: 2.5rem;
                 border: none;
                 border-radius: 2px;
                 outline: none;
-                margin: 10px;
-                font-size: 1vw;
+                font-size: 1rem;
             }
             .send{
-              font-size: 1vw;
-              margin-left: 2px;
+              width: 8%;
+              font-size: 1.5rem;
               cursor: pointer;
               color: #fff;
               &:hover{
-                color: rgb(221, 221, 221);
+                color: #dddddd;
               }
             }
           }
@@ -177,7 +173,7 @@
       & > h3{
         color: #fff;
         font-weight: 300;
-        font-size: 2vw;
+        font-size: 2rem;
       }
     }
   }
