@@ -4,9 +4,9 @@
 [Use the web site here https://chat-app.cf](https://chat-app.cf)
 
 ## Environments
-```
+
 Create environment.js to export firebase keys.
-```
+
 
 ## Project setup
 ```
