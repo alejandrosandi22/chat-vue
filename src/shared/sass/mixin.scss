@@ -1,6 +1,18 @@
 @use './animations.scss';
 @use './responsive.scss';
 
+@mixin blur-bg{
+  z-index: -100;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #132C33;
+  background: linear-gradient(300deg, #132C33, #126E82);
+  filter: blur(150px);
+}
+
 @mixin input-effect {
   display: flex;
   align-items: center;
@@ -107,47 +119,23 @@
   }
 }
 
-@mixin google_button {
+@mixin sign-in-button {
   position: relative;
-  height: 5vh;
+  height: 2.5vw;
   width: 14vw;
   padding-left: 15px;
   outline: none;
   border: none;
   cursor: pointer;
   color: #fff;
-  background: #D04333;
   transition: .1s;
   &:hover{
-    background: #912b20;
     transition: .1s;
   }
   & > i{
     position: absolute;
     left: 15px;
   } 
-}
-
-@mixin facebook_button {
-  position: relative;
-  height: 5vh;
-  width: 14vw;
-  padding-left: 15px;
-  outline: none;
-  border: none;
-  cursor: pointer;
-  color: #fff;
-  background: #3C66C5;
-  margin: 20px;
-  transition: .1s;
-  &:hover{
-      background: #294b9c;
-      transition: .1s;
-  }
-  & > i{
-      position: absolute;
-      left: 15px;
-  }
 }
 
 @include animations.rotate();

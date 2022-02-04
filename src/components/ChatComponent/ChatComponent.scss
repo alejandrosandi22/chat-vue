@@ -2,193 +2,185 @@
 @use '../../shared/sass/responsive.scss';
 
 .chat-container{
-    width: 100vw;
-    height: 100vh;
-    @include mixin.center-flex();
-    overflow: hidden;
-    .blur-background{
-        z-index: -100;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: #132C33;
-        background: linear-gradient(300deg, #132C33, #126E82);
-        filter: blur(150px);
-    }
-    .chat-wrapper{
-        position: relative;
-        display: flex;
-        align-items: center;
-        width: 80%;
-        height: 80%;
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        background: rgba(#8fcbd3, .5);
-        border-radius: 12px;
-        border: 1px solid rgba(#fff, 0.125);
-        box-shadow: 0 25px 45px #000000AA;
-        .users-area{
-            position: relative;
-            width: 30%;
-            height: 100%;
-            border-right: 2px solid rgba(#fff, 0.125);
-            & > h2{
-                height: 10%;
+  width: 100vw;
+  height: 100vh;
+  @include mixin.center-flex();
+  overflow: hidden;
+  .blur-background{
+    @include mixin.blur-bg();
+  }
+  .chat-wrapper{
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 80%;
+    height: 80%;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background: rgba(#8fcbd3, .5);
+    border-radius: 12px;
+    border: 1px solid rgba(#fff, 0.125);
+    box-shadow: 0 25px 45px #000000AA;
+    .users-area{
+      position: relative;
+      width: 30%;
+      height: 100%;
+      border-right: 2px solid rgba(#fff, 0.125);
+        & > h2{
+          height: 10%;
+          color: #fff;
+          font-size: 1.3em;
+          font-weight: 300;
+          @include mixin.center-flex();
+          border-bottom: 2px solid rgba(#fff, 0.125);
+        }
+        .all-users-wrapper{
+          width: 100%;
+          height: calc(90% - 1px);
+          overflow-y: scroll;
+          color: #fff;
+          .user-wrapper{
+            border-bottom: 2px solid rgba(#fff, 0.125);
+            width: 100%;
+            height: 4em;
+            @include mixin.center-flex();
+            justify-content: initial;
+            cursor: pointer;
+            overflow: hidden;
+            &:hover{
+              filter: contrast(70%);
+            }
+            .user-photo{
+              border-radius: 50%;
+              height: 70%;
+              margin: 0 8px;
+            }
+              .user{
+                .user-name{
+                  font-size: 1em;
+                  font-weight: 300;
+                  word-break:break-all;
+                  color: #fff;
+                  width: max-content;
+                }
+                .user-data{
+                  font-size: .8em;
+                  font-weight: 300;
+                  color: #fff;
+                  word-break:break-all;
+                  width: max-content;
+                }
+              }
+            }
+          }
+        }
+        & > span{
+          z-index: 100;
+          color: #fff;
+          display: none;
+        }
+        .messege-area-wrapper{
+          position: relative;
+          width: 70%;
+          height: 100%;
+          .actual-contact{
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 10%;
+            border-bottom: 2px solid rgba(#fff, 0.125);
+            & > img{
+              height: 70%;
+              margin: 0 15px;
+              border-radius: 50%;
+            }
+            & > div{
+              & > h2{
                 color: #fff;
                 font-size: 1.3em;
                 font-weight: 300;
-                @include mixin.center-flex();
-                border-bottom: 2px solid rgba(#fff, 0.125);
-            }
-            .all-users-wrapper{
-                width: 100%;
-                height: calc(90% - 1px);
-                overflow-y: scroll;
-                color: #fff;
-                .user-wrapper{
-                    border-bottom: 2px solid rgba(#fff, 0.125);
-                    width: 100%;
-                    height: 4em;
-                    @include mixin.center-flex();
-                    justify-content: initial;
-                    cursor: pointer;
-                    overflow: hidden;
-                    &:hover{
-                        filter: contrast(70%);
-                    }
-                    .user-photo{
-                        border-radius: 50%;
-                        height: 70%;
-                        margin: 0 8px;
-                    }
-                    .user{
-                        .user-name{
-                            font-size: 1em;
-                            font-weight: 300;
-                            word-break:break-all;
-                            color: #fff;
-                            width: max-content;
-                        }
-                        .user-data{
-                            font-size: .8em;
-                            font-weight: 300;
-                            color: #fff;
-                            word-break:break-all;
-                            width: max-content;
-                        }
-                    }
-                }
-            }
-        }
-        & > span{
-            z-index: 100;
-            color: #fff;
-            display: none;
-        }
-        .messege-area-wrapper{
-            position: relative;
-            width: 70%;
-            height: 100%;
-            .actual-contact{
-                display: flex;
-                align-items: center;
-                width: 100%;
-                height: 10%;
-                border-bottom: 2px solid rgba(#fff, 0.125);
-                & > img{
-                    height: 70%;
-                    margin: 0 15px;
-                    border-radius: 50%;
-                }
-                & > div{
-                    & > h2{
-                        color: #fff;
-                        font-size: 1.3em;
-                        font-weight: 300;
-                    }
-                    & > h3{
-                        color: rgba(#fff, 0.5);
-                        font-size: .9em;
-                        font-weight: 300;
-                    }
-                }
-            }
-            .messeges-container{
-                position: relative;
-                width: 100%;
-                height: 80%;
-                overflow-y: scroll;
-                .messege-wrapper{
-                    width: 100%;
-                    display: flex;
-                    flex-direction: column;
-                    .messege{
-                        position: relative;
-                        background: #D8E3E7;
-                        width: 40%;
-                        border-radius: 10px;
-                        margin: 10px;
-                        .text{
-                            padding: 6px;
-                            font-size: 1.1vw;
-                        }
-                        .time{
-                            padding: 0px 6px 6px 0;
-                            text-align: end;
-                            font-size: 1.1vw;
-                            & > span{
-                                font-weight: 300;
-                                margin-right: 0.5vw;
-                                font-size: 1.0vw;
-                            }
-                        }
-                    }
-                    .current-user{
-                        background: #126E82;
-                        color: #fff;
-                        align-self: flex-end;
-                    }
-                }
-            }
-            .input-text{
-                width: 100%;
-                bottom: 0;
-                border-top: 2px solid rgba(#fff, 0.125);
-                & > input{
-                    padding: 0 5px;
-                    width: 90%;
-                    height: 4vh;
-                    border: none;
-                    border-radius: 2px;
-                    outline: none;
-                    margin: 10px;
-                    font-size: 1vw;
-                }
-                .send{
-                    font-size: 1vw;
-                    margin-left: 2px;
-                    cursor: pointer;
-                    color: #fff;
-                    &:hover{
-                        color: rgb(221, 221, 221);
-                    }
-                }
-            }
-        }
-        .no-selected-user{
-            position: relative;
-            width: 70%;
-            height: 100%;
-            @include mixin.center-flex();
-            & > h3{
-                color: #fff;
+              }
+              & > h3{
+                color: rgba(#fff, 0.5);
+                font-size: .9em;
                 font-weight: 300;
-                font-size: 2vw;
+              }
             }
+          }
+          .messeges-container{
+            position: relative;
+            width: 100%;
+            height: 80%;
+            overflow-y: scroll;
+            .messege-wrapper{
+              width: 100%;
+              display: flex;
+              flex-direction: column;
+              .messege{
+                position: relative;
+                background: #D8E3E7;
+                width: 40%;
+                border-radius: 10px;
+                margin: 10px;
+                .text{
+                  padding: 6px;
+                  font-size: 1.1vw;
+                }
+                .time{
+                  padding: 0px 6px 6px 0;
+                  text-align: end;
+                  font-size: 1.1vw;
+                  & > span{
+                    font-weight: 300;
+                    margin-right: 0.5vw;
+                    font-size: 1.0vw;
+                  }
+                }
+              }
+              .current-user{
+                background: #126E82;
+                color: #fff;
+                align-self: flex-end;
+              }
+            }
+          }
+          .input-text{
+            width: 100%;
+            bottom: 0;
+            border-top: 2px solid rgba(#fff, 0.125);
+            & > input{
+                padding: 0 5px;
+                width: 90%;
+                height: 4vh;
+                border: none;
+                border-radius: 2px;
+                outline: none;
+                margin: 10px;
+                font-size: 1vw;
+            }
+            .send{
+              font-size: 1vw;
+              margin-left: 2px;
+              cursor: pointer;
+              color: #fff;
+              &:hover{
+                color: rgb(221, 221, 221);
+              }
+            }
+          }
         }
+    .no-selected-user{
+      position: relative;
+      width: 70%;
+      height: 100%;
+      @include mixin.center-flex();
+      & > h3{
+        color: #fff;
+        font-weight: 300;
+        font-size: 2vw;
+      }
     }
+  }
 }
 
-@include responsive.chatResponsive();
+@include responsive.chat();

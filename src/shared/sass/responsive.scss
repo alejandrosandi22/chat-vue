@@ -1,4 +1,4 @@
-@mixin loginResponsive () {
+@mixin loginResponsive {
   @media (max-width: 1024px) {
     .login-container{
       .form-wrapper{
@@ -23,12 +23,6 @@
           & > a{
             font-size: 2.5vw;
           }
-        }
-        .google{
-          width: 225px;
-        }
-        .facebook{
-          width: 225px;
         }
       }
     }
@@ -60,9 +54,6 @@
             font-size: 4vw;
           }
         }
-        .google, .facebook{
-          width: 180px;
-        }
       }
     }
   }
@@ -92,14 +83,10 @@
             font-size: 2vw;
           }
         }
-        .google, .facebook{
-          width: 210px;
-          height: 50px;
-        }
       }
     }
   }
-  @media (max-width: 640px) {
+  @media (max-width: 720px) {
     .sign-up-container{
       height: 130vh;
       overflow-y: scroll;
@@ -112,19 +99,19 @@
               position: relative;
               flex-wrap: wrap;
               height: 18vh;
-                .input-wrapper{
-                position: relative;
-                  width: 100%;
-                  .input{
-                    font-size: 4.45vw;
-                    height: 30px;
-                    position: relative;
-                  }  
-                }
-                .photo-user{
-                  justify-content: initial;
-                }
+              .input-wrapper{
+              position: relative;
+                width: 100%;
+                .input{
+                  font-size: 4.45vw;
+                  height: 30px;
+                  position: relative;
+                }  
               }
+              .photo-user{
+                justify-content: initial;
+              }
+            }
           }
         }
         .actions{
@@ -143,20 +130,15 @@
             font-size: 3.5vw;
           }
         }
-        .google, .facebook{
-          width: 180px;
-        }
       }
     }
   }
 }
 
-@mixin chatResponsive {
-  @media (max-width: 640px) {
+@mixin chat {
+  @media (max-width: 720px) {
     .chat-container{
       .chat-wrapper{
-        width: 90vw;
-        height: 80vh;
         .users-area{
           transition: .5s;
           width: 0;
@@ -222,7 +204,7 @@
 }
 
 @mixin navResponsive {
-  @media (max-width: 640px) {
+  @media (max-width: 720px) {
     .nav-container{
       position: fixed;
       top: initial;
@@ -316,6 +298,17 @@
         &::after{
           font-size: 12px;
         }
+      }
+    }
+  }
+}
+
+@mixin sign-in-button {
+  @media (max-width: 720px) {
+    .social-buttons-container{
+      .facebook, .google{
+        height: 5vh;
+        width: 26vh;
       }
     }
   }
