@@ -13,6 +13,15 @@
   filter: blur(150px);
 }
 
+@mixin container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  @include center-flex();
+  overflow: hidden;
+  background: linear-gradient(300deg, rgba(19, 44, 51, 0.6), rgba(18, 110, 130, 0.6));
+}
+
 @mixin form-style {
   position: relative;
   display: flex;
