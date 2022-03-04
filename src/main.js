@@ -8,4 +8,4 @@ import 'firebase/compat/auth';
 
 firebase.initializeApp(environment.firebaseConfig);
 
-createApp(App).use(router).mount('#app');
+createApp(App).use(router).mount('#root');

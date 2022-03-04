@@ -1,22 +1,15 @@
-
 @use '../../shared/sass/mixin.scss';
 @use '../../shared/sass/responsive.scss';
 @use '../../shared//sass/animations.scss';
 
-
-
-
 .login-container{
-  width: 100%;
-  height: 100vh;
-  @include mixin.center-flex();
-  overflow: hidden;
+  @include mixin.container();
   .blur-background{
     @include mixin.blur-bg();
   }
   .form-wrapper{
-      width: 37vw;
-      height: 80vh;
+      width: 35rem;
+      height: 42rem;
       @include mixin.form-style();
       & > h2{
         height: 23%;

@@ -1,16 +1,9 @@
 @mixin login {
-  @media (max-width: 1024px) {
-    .login-container{
-      .form-wrapper{
-        width: 70vw;
-      }
-    }
-  }
   @media (max-width: 720px) {
     .login-container{
       .form-wrapper{
         width: 90vw;
-        height: 90vh;
+        height: 80vh;
         .account{
           & > a{
             text-align: center;

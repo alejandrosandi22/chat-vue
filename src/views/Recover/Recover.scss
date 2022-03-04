@@ -2,10 +2,7 @@
 @use '../../shared/sass/responsive.scss';
 
 .recover-container{
-  width: 100vw;
-  height: 100vh;
-  @include mixin.center-flex();
-  overflow: hidden;
+  @include mixin.container();
   .blur-background{
     @include mixin.blur-bg();
     }

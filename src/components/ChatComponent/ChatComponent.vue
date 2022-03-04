@@ -14,7 +14,7 @@
           </div>
         </div>
       </div>
-      <span><i class="fal fa-bars" @click="toggleUsers"></i></span>
+      <span><i :class="[!barsToggle ? 'fal fa-bars' : 'fal fa-times']" @click="toggleUsers"></i></span>
       <div v-if="selectedUser" class="messege-area-wrapper" :class="{'toggle': barsToggle === true}">
         <div class="actual-contact">
           <img :src="photo_url" @error="imgError" alt="profile">
