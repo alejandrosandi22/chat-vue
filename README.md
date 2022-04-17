@@ -1,7 +1,7 @@
 # chat
 
 ## URL
-[Use the web site here https://chat-app.cf](https://chat-app.cf)
+[Use the chat here https://chat.alejandrosandi.ml](https://chat.alejandrosandi.ml)
 
 ## Environments
 
