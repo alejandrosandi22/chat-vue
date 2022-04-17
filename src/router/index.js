@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Login from '../components/LoginComponent/LoginComponent.vue';
 import SignUp from '../components/SignUpComponent/SignUpComponent.vue';
@@ -49,7 +49,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes,
 })
 

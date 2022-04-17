@@ -1,6 +1,5 @@
 <template>
     <div class="login-container">
-      <div class="blur-background"></div>
       <div class="form-wrapper">
         <h2>Login</h2>
         <form @submit.prevent="Login" class="form" id="loginForm">

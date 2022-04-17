@@ -25,15 +25,7 @@
 }
 
 .sign-up-container{
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  .blur-background{
-    @include mixin.blur-bg();
-  }
+  @include mixin.container();
   .form-wrapper{
     width: 50vw;
     height: 90vh;

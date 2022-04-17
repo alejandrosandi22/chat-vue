@@ -3,9 +3,6 @@
 
 .recover-container{
   @include mixin.container();
-  .blur-background{
-    @include mixin.blur-bg();
-    }
     .recover-wrapper{
       width: 50vw;
       height: 50vh;

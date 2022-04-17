@@ -3,9 +3,6 @@
 
 .profile-container{
   @include mixin.container();
-  .blur-background{
-    @include mixin.blur-bg();
-  }
   .actions{
     position: absolute;
     top: 2rem;

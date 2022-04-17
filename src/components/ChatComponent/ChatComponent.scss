@@ -3,9 +3,6 @@
 
 .chat-container{
   @include mixin.container();
-  .blur-background{
-    @include mixin.blur-bg();
-  }
   .chat-wrapper{
     width: 80%;
     height: 80%;

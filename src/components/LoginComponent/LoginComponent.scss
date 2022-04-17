@@ -4,9 +4,6 @@
 
 .login-container{
   @include mixin.container();
-  .blur-background{
-    @include mixin.blur-bg();
-  }
   .form-wrapper{
       width: 35rem;
       height: 42rem;

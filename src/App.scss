@@ -9,7 +9,6 @@
 
 body{
   min-height: -webkit-fill-available;
-  background: linear-gradient(300deg, rgba(19, 44, 51, 0.6), rgba(18, 110, 130, 0.6));
 }
 
 :root{
@@ -53,6 +52,8 @@ body{
 }
 
 .App{
+  position: absolute;
   height: 100%;
-  background: linear-gradient(300deg, rgba(19, 44, 51, 0.6), rgba(18, 110, 130, 0.6));
+  width: 100%;
+  background-image: linear-gradient(to left top, #132c33, #153c46, #164c59, #165d6d, #126e82);
 }
