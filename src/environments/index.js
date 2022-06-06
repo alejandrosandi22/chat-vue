@@ -5,7 +5,7 @@ const firebaseConfig = {
   projectId: "chat-production-75509",
   storageBucket: "chat-production-75509.appspot.com",
   messagingSenderId: "493644836494",
-  appId: "1:493644836494:web:6072110bfb38144f77a3df"
+  appId: "1:493644836494:web:6072110bfb38144f77a3df",
 };
 
 //Development
@@ -16,8 +16,7 @@ const firebaseConfigDev = {
   projectId: "chat-dev-7c392",
   storageBucket: "chat-dev-7c392.appspot.com",
   messagingSenderId: "193689647367",
-  appId: "1:193689647367:web:bedaca9e34b5273e46ada2"
+  appId: "1:193689647367:web:bedaca9e34b5273e46ada2",
 };
-  
 
-exports.firebaseConfig = firebaseConfig;
+export { firebaseConfig, firebaseConfigDev };

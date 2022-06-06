@@ -1,31 +1,23 @@
-# chat
-
-## URL
-[Use the chat here https://chat.alejandrosandi.ml](https://chat.alejandrosandi.ml)
-
-## Environments
-
-Create environment.js to export firebase keys.
-
+# chat-app
 
 ## Project setup
 ```
-yarn install
+npm install
 ```
 
 ### Compiles and hot-reloads for development
 ```
-yarn serve
+npm run serve
 ```
 
 ### Compiles and minifies for production
 ```
-yarn build
+npm run build
 ```
 
 ### Lints and fixes files
 ```
-yarn lint
+npm run lint
 ```
 
 ### Customize configuration
