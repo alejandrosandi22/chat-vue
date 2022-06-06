@@ -1,70 +1,74 @@
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHistory } from 'vue-router';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import Login from "../views/Login.vue";
-import SignUp from "../views/SignUp.vue";
-import Chat from "../views/Chat.vue";
-import Profile from "../views/Profile.vue";
-import Recover from "../views/Recover.vue";
+import Login from '../components/LoginComponent/LoginComponent.vue';
+import SignUp from '../components/SignUpComponent/SignUpComponent.vue';
+import Messeges from '../views/Messeges/Messeges.vue';
+import Profile from '../views/Profile/Profile.vue';
+import Recover from '../views/Recover/Recover.vue'
 
 const routes = [
   {
-    path: "/",
-    name: "default",
-    component: SignUp,
+    path: '/',
+    name: 'Default',
+    redirect: '/messeges',
+    component: Messeges
   },
   {
-    path: "/login",
-    name: "login",
-    component: Login,
+    path: '/login',
+    name: 'Login',
+    component: Login
   },
   {
-    path: "/signup",
-    name: "signup",
-    component: SignUp,
+    path: '/signup',
+    name: 'SignUp',
+    component: SignUp
   },
   {
-    path: "/recover",
-    name: "Recover",
-    component: Recover,
+    path: '/messeges',
+    name: 'Messeges',
+    component: Messeges,
+    meta: { requiresAuth: true }
   },
   {
-    path: "/chat",
-    name: "chat",
-    component: Chat,
-    meta: { requiresAuth: true },
-  },
-  {
-    path: "/profile",
-    name: "profile",
+    path: '/profile',
+    name: 'Profile',
     component: Profile,
-    meta: { requiresAuth: true },
+    meta: { requiresAuth: true }
   },
   {
-    path: "/:catchMatch(.*)*",
-    name: "404",
-    redirect: "/login",
-    component: Login,
+    path: '/recover',
+    name: 'Recover',
+    component: Recover
   },
-];
+  {
+    path: '/:catchMatch(.*)*',
+    name: '404',
+    redirect: '/login',
+    component: Login
+  }
+]
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHistory(),
   routes,
-});
+})
 
-router.beforeEach((to, _from, next) => {
+router.beforeEach((to, from, next) => {
+
   let logged = false;
 
   const auth = getAuth();
   onAuthStateChanged(auth, (user) => {
-    user ? (logged = true) : (logged = false);
+    user ? logged = true : logged = false;
 
-    if (to.matched.some((route) => route.meta.requiresAuth) && !logged) {
-      next("/login");
+    if (to.matched.some(route => route.meta.requiresAuth) && !logged) {
+      next('/login')
     } else {
       next();
     }
-  });
-});
 
-export default router;
+  });
+
+})
+
+export default router

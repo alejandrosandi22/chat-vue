@@ -1,11 +1,11 @@
-import { createApp } from "vue";
-import App from "./App.vue";
-import router from "./router";
-import firebase from "firebase/compat/app";
-import { firebaseConfig } from "./environments";
-import "firebase/storage";
-import "firebase/compat/auth";
+import { createApp } from 'vue';
+import App from './App.vue';
+import router from './router'
+import firebase from 'firebase/compat/app';
+import environment from './environments/environment';
+import 'firebase/storage';
+import 'firebase/compat/auth';
 
-firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(environment.firebaseConfig);
 
-createApp(App).use(router).mount("#app");
+createApp(App).use(router).mount('#root');

@@ -1,7 +1,8 @@
 .DS_Store
 node_modules
+enlace
+deploy.sh
 /dist
-
 
 # local env files
 .env.local

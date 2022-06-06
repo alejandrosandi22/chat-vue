@@ -1,5 +1,5 @@
-@use "../scss/mixin.scss";
-@use "../scss/responsive.scss";
+@use "../../shared/sass/mixin.scss";
+@use "../../shared/sass/responsive.scss";
 
 .profile-container {
   @include mixin.container();
@@ -55,7 +55,7 @@
           height: 100%;
           display: flex;
           align-items: center;
-          justify-content: flex-end;
+          justify-content: end;
         }
         td {
           position: relative;

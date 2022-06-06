@@ -1,5 +1,4 @@
 <template>
-  <Nav />
   <div class="chat-container">
     <span class="blur-background"></span>
     <div class="chat-wrapper">
@@ -107,20 +106,16 @@ import {
   doc,
 } from "firebase/firestore";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import Nav from "../components/Nav.vue";
 import toastr from "toastr";
 
 export default {
-  name: "Chat",
-  components: {
-    Nav,
-  },
+  name: "ChatComponent",
   data() {
     return {
       auth: getAuth(),
       selectedUser: false,
       users: [],
-      defaultImageError: require("../assets/user.png"),
+      defaultImageError: require("../../assets/user.png"),
       user_name: "",
       photo_url: "",
       user_email: "",
@@ -236,4 +231,4 @@ export default {
 };
 </script>
 
-<style lang="scss" src="../styles/Chat.scss"></style>
+<style lang="scss" src="./ChatComponent.scss"></style>
