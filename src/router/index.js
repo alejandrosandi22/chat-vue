@@ -10,7 +10,8 @@ const routes = [
   {
     path: "/",
     name: "default",
-    component: SignUp,
+    component: Chat,
+    meta: { requiresAuth: true },
   },
   {
     path: "/login",
@@ -47,8 +48,10 @@ const routes = [
   },
 ];
 
+const history = createWebHistory();
+
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history,
   routes,
 });
 
