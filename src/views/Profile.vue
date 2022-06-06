@@ -16,8 +16,7 @@
             <label for="file">
               <img
                 draggable="false"
-                :src="photo_url"
-                @error="imgError"
+                :src="photo_url ? photo_url : '/user.png'"
                 alt="profile_photo"
               />
               <span><i class="fal fa-upload"></i></span>
@@ -65,7 +64,7 @@ export default {
       selectedPhoto: "",
       edit: false,
       db: getFirestore(),
-      defaultImageError: require("../assets/user.png"),
+      defaultImageError: "",
       router: useRouter(),
     };
   },
@@ -134,7 +133,7 @@ export default {
       this.user_email = this.current_user[0].email;
       this.photo_url = this.current_user[0].photoURL;
       if (this.current_user[0].photoURL === "") {
-        this.photo_url = require("../assets/user.png");
+        this.photo_url = "/user.png";
       }
     },
     imgError(e) {

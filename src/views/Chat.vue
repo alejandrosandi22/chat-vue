@@ -15,7 +15,7 @@
             <img
               draggable="false"
               class="user-photo"
-              :src="user.photoURL"
+              :src="user.photoURL ? user.photoURL : '/user.png'"
               @error="imgError"
               alt="profile photo"
             />
@@ -38,7 +38,11 @@
         :class="{ toggle: barsToggle === true }"
       >
         <div class="actual-contact">
-          <img :src="photo_url" @error="imgError" alt="profile" />
+          <img
+            :src="photo_url ? photo_url : '/user.png'"
+            @error="imgError"
+            alt="profile"
+          />
           <div>
             <h2>{{ user_name }}</h2>
             <h3>{{ user_email }}</h3>
@@ -120,7 +124,7 @@ export default {
       auth: getAuth(),
       selectedUser: false,
       users: [],
-      defaultImageError: require("../assets/user.png"),
+      defaultImageError: "",
       user_name: "",
       photo_url: "",
       user_email: "",
