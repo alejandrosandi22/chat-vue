@@ -1,19 +1,19 @@
-@use '../../../shared/sass/mixin.scss';
+@use "../scss/mixin.scss";
 
-.social-buttons-container{
+.social-buttons-container {
   display: flex;
   flex-direction: column;
-  .google{
+  .google {
     @include mixin.sign-in-button();
-    background: #D04333;
-    &:hover{
+    background: #d04333;
+    &:hover {
       background: #912b20;
     }
   }
-  .facebook{
+  .facebook {
     @include mixin.sign-in-button();
-    background: #3C66C5;
-    &:hover{
+    background: #3c66c5;
+    &:hover {
       background: #294b9c;
     }
   }

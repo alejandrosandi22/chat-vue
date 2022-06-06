@@ -1,9 +1,9 @@
-@use '/src/shared/sass/mixin.scss';
-@use '../../shared//sass/animations.scss';
-@use '../../shared/sass/responsive.scss';
+@use "../scss/mixin.scss";
+@use "../scss/animations.scss";
+@use "../scss/responsive.scss";
 
-@mixin input{
-  .input{
+@mixin input {
+  .input {
     padding-left: 15px;
     width: calc(100% - 15px);
     height: 4vh;
@@ -12,53 +12,55 @@
     border-radius: 2px;
     font-size: 1rem;
   }
-  & > label{
+  & > label {
     font-size: 1rem;
   }
-  .emptyInput{
+  .emptyInput {
     height: 4vh;
-    & ~ label{
+    & ~ label {
       transform: translateY(-160%);
       color: #fff;
     }
   }
 }
 
-.sign-up-container{
+.sign-up-container {
   @include mixin.container();
-  .form-wrapper{
+  .form-wrapper {
     width: 50vw;
     height: 90vh;
     @include mixin.form-style();
-    .form-container{
+    .form-container {
       width: 90%;
-      .form{
+      .form {
         position: relative;
         width: 100%;
-        .line-one, .line-two, .line-three{
+        .line-one,
+        .line-two,
+        .line-three {
           position: relative;
           display: flex;
           width: 100%;
           height: 9vh;
-          .name{
+          .name {
             position: absolute;
             width: 48%;
             @include mixin.input-effect();
           }
-          .last-name{
+          .last-name {
             position: absolute;
             top: 0;
             right: 0;
             width: 48%;
             @include mixin.input-effect();
           }
-          .email{
+          .email {
             position: absolute;
             top: 0;
             width: 48%;
             @include mixin.input-effect();
           }
-          .photo-user{
+          .photo-user {
             position: absolute;
             right: 0;
             width: 48%;
@@ -66,7 +68,7 @@
             align-items: center;
             justify-content: center;
             height: 9vh;
-            .input[type=file]{
+            .input[type="file"] {
               width: 0;
               height: 0;
               opacity: 0;
@@ -74,32 +76,32 @@
               z-index: -1;
               padding: 0;
             }
-            .label-input-file{
+            .label-input-file {
               position: relative;
-              background: #126E82;
+              background: #126e82;
               font-size: 1rem;
               font-weight: 300;
-              border-radius: .2rem;
+              border-radius: 0.2rem;
               color: #fff;
-              padding: .4rem;
+              padding: 0.4rem;
               cursor: pointer;
               margin: 0;
-              &:hover{
+              &:hover {
                 filter: brightness(85%);
               }
             }
-            & > span{
+            & > span {
               position: relative;
               color: #fff;
               margin-left: 1rem;
             }
           }
-          .password{
+          .password {
             position: absolute;
             width: 48%;
             @include mixin.input-effect();
           }
-          .request-password{
+          .request-password {
             position: absolute;
             right: 0;
             width: 48%;
@@ -109,7 +111,7 @@
         }
       }
     }
-    & > h2{
+    & > h2 {
       height: 18vh;
       font-size: 3rem;
       color: #fff;
@@ -120,35 +122,35 @@
     & > span {
       color: #fff;
     }
-    .actions{
+    .actions {
       width: 100%;
       height: 40px;
       @include mixin.center-flex();
       margin: 1rem 0;
-      .submit{
+      .submit {
         @include mixin.auth-buttons();
         margin-left: 1rem;
-        &::after{
-          content: 'Sign Up';
+        &::after {
+          content: "Sign Up";
         }
       }
-      .cancel{
+      .cancel {
         @include mixin.auth-buttons();
         margin-right: 1rem;
-        &::after{
-          content: 'Cancel';
+        &::after {
+          content: "Cancel";
         }
       }
     }
-    .account{
+    .account {
       margin: 1rem 0;
-      & > a{
+      & > a {
         cursor: pointer;
         text-decoration: underline;
-        color: rgba(#fff, .5);
+        color: rgba(#fff, 0.5);
         margin: 1rem;
         font-size: 1rem;
-        &:hover{
+        &:hover {
           color: #fff;
         }
       }
