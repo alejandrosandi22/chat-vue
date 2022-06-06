@@ -1,32 +1,33 @@
-@use '../../shared/sass/mixin.scss';
-@use '../../shared/sass/responsive.scss';
+@use "../scss/mixin.scss";
+@use "../scss/responsive.scss";
 
-.profile-container{
+.profile-container {
   @include mixin.container();
-  .actions{
+  .actions {
     position: absolute;
     top: 2rem;
     right: 2rem;
-    .save-button, .cancel-button{
+    .save-button,
+    .cancel-button {
       @include mixin.auth-buttons();
       width: 5.5rem;
       height: 2.8rem;
-      margin: .5rem;
-      &::after{
-        content: 'Save';
+      margin: 0.5rem;
+      &::after {
+        content: "Save";
       }
     }
-    .cancel-button{
-      &::after{
-        content: 'Cancel';
+    .cancel-button {
+      &::after {
+        content: "Cancel";
       }
     }
   }
-  .profile-wrapper{
+  .profile-wrapper {
     width: 50vw;
     height: 80vh;
     @include mixin.form-style();
-    & > h4{
+    & > h4 {
       box-sizing: border-box;
       padding: 1rem 2rem;
       width: 100%;
@@ -37,45 +38,45 @@
       font-size: 2.5rem;
       font-weight: 300;
     }
-    & > table{
+    & > table {
       @include mixin.center-absolute();
       width: 90%;
       height: 80%;
-      tr{
-      height: 25%;
-      width: 100%;
-      &:nth-child(1){
-        .first-column{
+      tr {
+        height: 25%;
+        width: 100%;
+        &:nth-child(1) {
+          .first-column {
+            height: 100%;
+          }
+        }
+        .first-column {
+          width: 60%;
           height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
         }
-      }
-      .first-column{
-        width: 60%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: end;
-      }
-      td{
-        position: relative;
-        width: 50%;
-        color: #fff;
-        font-size: 1.4rem;
-        & > input[type=file]{
-          opacity: 0;
-          width: 0;
-          height: 0;
-          margin: 0;
-          padding: 0;
-        }
-          & > label{
-            & > img{
+        td {
+          position: relative;
+          width: 50%;
+          color: #fff;
+          font-size: 1.4rem;
+          & > input[type="file"] {
+            opacity: 0;
+            width: 0;
+            height: 0;
+            margin: 0;
+            padding: 0;
+          }
+          & > label {
+            & > img {
               @include mixin.center-absolute();
               right: initial;
               width: 10rem;
               border-radius: 50%;
             }
-            & > span{
+            & > span {
               @include mixin.center-absolute();
               @include mixin.center-flex();
               right: initial;
@@ -85,9 +86,9 @@
               border-radius: 50%;
               cursor: pointer;
               opacity: 0;
-              &:hover{
+              &:hover {
                 opacity: 1;
-                background: #000000AA;
+                background: #000000aa;
               }
             }
           }

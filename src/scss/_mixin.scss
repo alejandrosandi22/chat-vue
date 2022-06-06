@@ -1,5 +1,5 @@
-@use './animations.scss';
-@use './responsive.scss';
+@use "./animations.scss";
+@use "./responsive.scss";
 
 @mixin container {
   position: absolute;
@@ -7,7 +7,11 @@
   height: 100%;
   @include center-flex();
   overflow: hidden;
-  background-image: linear-gradient(to left top, rgba(224, 224, 224, .25), rgba(255, 255, 255, .25));
+  background-image: linear-gradient(
+    to left top,
+    rgba(224, 224, 224, 0.25),
+    rgba(255, 255, 255, 0.25)
+  );
   backdrop-filter: blur(50px);
 }
 
@@ -18,30 +22,30 @@
   align-items: center;
   backdrop-filter: blur(2rem);
   -webkit-backdrop-filter: blur(20em);
-  background: rgba(#8fcbd3, .5);
+  background: rgba(#8fcbd3, 0.5);
   border-radius: 12px;
   border: 1px solid rgba(#fff, 0.125);
-  box-shadow: 0 25px 45px #000000AA;
+  box-shadow: 0 25px 45px #000000aa;
 }
 
 @mixin input-effect {
   display: flex;
   align-items: center;
   height: 5rem;
-  & > input{
+  & > input {
     position: absolute;
-    &:focus ~ label{
+    &:focus ~ label {
       position: absolute;
       color: #fff;
       transform: translateY(-160%);
-      transition: .5s;
+      transition: 0.5s;
     }
   }
-  label{
+  label {
     position: absolute;
     color: #535353;
     cursor: text;
-    transition: .5s;
+    transition: 0.5s;
     margin-left: 1rem;
     font-size: 1rem;
   }
@@ -67,32 +71,32 @@
   align-self: center;
   width: 11rem;
   height: 3.5rem;
-  background: #D8E3E7;
+  background: #d8e3e7;
   border: none;
-  border-radius: .2rem;
+  border-radius: 0.2rem;
   outline: none;
   cursor: pointer;
   overflow: hidden;
-  &:hover{
-    &::before{
-      background: rgba(#126E82, .7);
+  &:hover {
+    &::before {
+      background: rgba(#126e82, 0.7);
       animation: rotate 2s linear infinite;
-      transition: .5s;
+      transition: 0.5s;
     }
   }
-  &:active{
+  &:active {
     background: #d0dadd;
-    transition: .1s;
-    &::after{
+    transition: 0.1s;
+    &::after {
       background: #d0dadd;
-      transition: .1s;
+      transition: 0.1s;
     }
   }
-  &::after{
-    content: 'Login';
+  &::after {
+    content: "Login";
     position: absolute;
     @include center-flex();
-    color: #132C33;
+    color: #132c33;
     width: 96%;
     height: 90%;
     top: 0;
@@ -100,13 +104,13 @@
     left: 0;
     right: 0;
     margin: auto;
-    border-radius: .5rem;
-    background: #D8E3E7;
+    border-radius: 0.5rem;
+    background: #d8e3e7;
     font-size: 1rem;
-    transition: .5s;
+    transition: 0.5s;
   }
-  &::before{
-    content: '';
+  &::before {
+    content: "";
     position: absolute;
     top: 0;
     bottom: 0;
@@ -114,9 +118,9 @@
     margin: auto;
     width: 150%;
     height: 50%;
-    border-radius: .2rem;
+    border-radius: 0.2rem;
     animation: rotate 2s linear infinite;
-    transition: all .5s;
+    transition: all 0.5s;
   }
 }
 
@@ -131,14 +135,14 @@
   border: none;
   cursor: pointer;
   color: #fff;
-  transition: .1s;
-  &:hover{
-    transition: .1s;
+  transition: 0.1s;
+  &:hover {
+    transition: 0.1s;
   }
-  & > i{
+  & > i {
     position: absolute;
     left: 1.5rem;
-  } 
+  }
 }
 
 @include animations.rotate();
