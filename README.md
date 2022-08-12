@@ -20,9 +20,9 @@ Open [http://localhost:8080](http://localhost:8080) with your browser to see the
 
 ### Technologies
 
-- [Vue.js](https://www.typescriptlang.org/)
-- [JavaScript](https://nextjs.org/)
-- [Firebase](https://graphql.org/)
+- [Vue.js](https://es.vuejs.org/)
+- [JavaScript](https://www.javascript.com/)
+- [Firebase](https://firebase.google.com/)
 
 Use the chat here: [https://chat.alejandrosandi.ml](https://chat.alejandrosandi.com)
 <br/>
