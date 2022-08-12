@@ -16,7 +16,7 @@ $ npm install
 $ npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:8080](http://localhost:8080) with your browser to see the result.
 
 ### Technologies
 
@@ -24,6 +24,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - [JavaScript](https://nextjs.org/)
 - [Firebase](https://graphql.org/)
 
-Use the chat here [chat.alejandrosandi.ml](https://chat.alejandrosandi.com)
+Use the chat here: [https://chat.alejandrosandi.ml](https://chat.alejandrosandi.com)
 <br/>
 Visit other projects in my portfolio: [https://alejandrosandi.com](https://alejandrosandi.com)
