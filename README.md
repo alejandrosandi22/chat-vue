@@ -1,19 +1,28 @@
-# Chat
+## Chat App
 
-### Project setup
-```
-npm install
-```
+### Description
 
-### Compiles and hot-reloads for development
-```
-npm run dev
-```
+It is a sample chat application, where you can text to communicate with other users. The purpose of this project is to practice development through a chat application, to improve and learn by doing.
 
-### Compiles and minifies for production
-```
-npm run build
+### Installation
+
+```bash
+$ npm install
 ```
 
-## URL
+### First, run the development server:
+
+```bash
+$ npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+### Technologies
+
+- [Vue.js](https://www.typescriptlang.org/)
+- [JavaScript](https://nextjs.org/)
+- [Firebase](https://graphql.org/)
+
 [Use the chat here https://chat.alejandrosandi.ml](https://chat.alejandrosandi.com)
+Visit other projects in my portfolio: [https://alejandrosandi.com](https://alejandrosandi.com)
